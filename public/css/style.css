@@ -1,0 +1,946 @@
+/* Styles for Kickoff.ca */
+
+html,
+body {
+	font-size: 16px !important;
+	font-family: 'Crimson Text', 'Roboto', serif !important;
+}
+h1 {
+	font-size: 1.602em;
+	font-family: 'Fenix' !important;
+}
+h2 {
+	font-size: 1.424em;
+	font-family: 'Fenix' !important;
+}
+h3 {
+	font-size: 1.266em;
+	font-family: 'Fenix' !important;
+}
+h4 {
+	font-size: 1.125em;
+	font-family: 'Fenix' !important;
+}
+h5 {
+	font-size: 0.889em;
+	font-family: 'Fenix' !important;
+}
+h6 {
+	font-size: 0.79em;
+	font-family: 'Fenix' !important;
+}
+
+@media (min-width: 48em) {
+	h1 {
+	  font-size: 2.441em;
+	}
+	h2 {
+		font-size: 1.953em;
+	}
+	h3 {
+		font-size: 1.563em;
+	}
+	h4 {
+		font-size: 1.25em;
+	}
+}
+
+/* Large devices (desktops, 62em and up) */
+@media (min-width: 62em) {
+	html,
+	body {
+		font-size: 18px !important;
+	}
+}
+
+/* Extra large devices (large desktops, 75em and up) */
+@media (min-width: 75em) {
+	html,
+	body {
+		font-size: 20px !important;
+	}
+}
+
+#backgroundImg {
+	background-image: url('/storage/Images/Backgrounds/Backgroundv5.png');
+	background-repeat: repeat;
+}
+
+a:hover {
+	text-decoration-color: #A80C00;
+}
+
+.logoheader {
+  width: 100%;
+}
+
+#allhead {
+	background-color: #2B2B2B;
+	min-height: 12vh;
+}
+
+#pophead {
+	background-color: #86C2DD;
+	min-height: 15vh;
+}
+
+.navbar-nav {
+  margin-right: 0;
+}
+
+img.logoimg {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 12vh;
+}
+
+#largerpop {
+	height: 15vh;
+}
+
+.cards {
+  margin: 4em 1em;
+  box-shadow: 0 0 50px #ccc;
+}
+
+#cardi:hover {
+  box-shadow: 0 0 25px grey;
+}
+
+.card img{
+ height: auto;
+ border-radius: 1%;
+}
+
+.cardtitle {
+  text-align: center;
+  padding-bottom: 1px;
+}
+
+/* ~~~~~~ HEADER AND FOOTER STYLES ~~~~~~ */
+
+.footers {
+	padding: 2em 2em 1.5em 2em;
+  background-color: #353A3F;
+  color: lightgrey;
+}
+
+ul.logos {
+  list-style-type: none;
+  padding: 0;
+  margin: auto 2.5em 0 1.5em;
+  text-align: center;
+}
+
+ul.nav-logo {
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+	.navbar-nav > li > .dropdown-menu { background-color: #999999; }
+}
+
+#navl {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 3vw;
+}
+
+#twitter {
+	color: #38A1F3;
+	margin: 0;
+	padding-top: 0.4em;
+}
+
+#iglogo {
+	margin: 0;
+	padding-top: 0.1em;
+}
+
+li.logo {
+  display: inline;
+	padding: 1em 1em 1em 1em;
+}
+
+li.logo:hover {
+  text-decoration: none;
+}
+
+#footerLogo {
+	width: 25vw;
+	min-width: 250px;
+	margin-bottom: 1em
+}
+
+#copyright {
+	padding: 0.5em 1em 0 1em;
+}
+
+#fas-logo {
+	color: #9A2214;
+	opacity: 0.9;
+}
+
+#fas-logo:hover {
+	transition: .3s;
+	color: #BF5454;
+	opacity: 1;
+}
+
+.noline:hover {
+	text-decoration: none;
+}
+
+.footer-col {
+	color: #FEFEFE;
+}
+
+.footer-link {
+	color: white;
+	text-decoration: none;
+}
+
+.footer-link:hover {
+	color: #BF5454;
+	text-decoration: none;
+}
+
+img.logos {
+  background-color: #3F729B;
+  border-radius: 50%;
+  padding: 0;
+  min-width: 40px;
+  max-width: 4vw;
+  width: 3vw;
+  height: auto;
+  opacity: 0.9;
+}
+
+#iglogos {
+  background-color: #3F729B;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+img.logo-pod {
+  background-color: black;
+  border-radius: 25%;
+  margin: 10px;
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0;
+  min-width: 35px;
+  max-width: 4vw;
+  width: 3vw;
+  height: auto;
+  opacity: 0.9;
+}
+
+img.logos:hover {
+  opacity: 1;
+}
+
+img.logo-pod:hover {
+  opacity: 1;
+}
+
+/* ~~~~~~ BACK TO TOP BTN ~~~~~~ */
+#topBtn {
+  text-align: center;
+  line-height: 26px;
+}
+
+#btop {
+  display: none;
+  position: fixed;
+	width: 50px;
+  height: 50px;
+  bottom: 2vw;
+  right: 2vw;
+  z-index: 400;
+	font-size: 20px;
+  border-radius: 50%;
+  border: 2px solid #E3E3E3;
+  outline: none;
+  background-color: #A80C00;
+  color: #E3E3E3;
+  opacity: 0.9;
+  cursor: pointer;
+  padding: 0.5vw;
+}
+
+#btop:hover {
+  transition: .3s;
+  background-color: #555;
+  opacity: 1;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~ ARTICLE CSS STYLES ~~~~~~~~~~~~~~~~~~~ */
+
+h1.art-title {
+  text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+h5.author {
+  padding-top: 20px;
+}
+
+p.content {
+  font-size: 21px;
+}
+
+img.art-author-img {
+  max-width: 50px;
+  max-height: 50px;
+	margin-right:10px;
+}
+
+img.otherArts {
+	width:100%;
+	object-fit: cover;
+	height:10em;
+	min-height: 200px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~ PODCAST CSS STYLES ~~~~~~~~~~~~~~~~~~~ */
+
+.author-about {
+  margin-top: 3vh;
+}
+
+.flex-author {
+  display: flex;
+}
+
+img.author-img-about {
+  max-width: 110px;
+  max-height: 110px;
+}
+
+img.Podcast-about {
+  max-width: 15vw;
+  max-height: 15vh;
+  float: left;
+	margin: 10px;
+}
+
+h3.art-pod-title {
+  color:black;
+  /* text-align:center; */
+}
+
+img.podcast-img-about {
+  max-width: 100%;
+  max-height:33vh;
+  box-shadow: 1px 1px 3px black;
+}
+
+.in-article-image {
+  background-color: lightgrey;
+	margin-bottom:35px;
+	width: 75%;
+	min-width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img.art-img {
+	width:100%;
+	margin-bottom: 5px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* ~~~~~~~~~~~~~ SPORTS PAGES ~~~~~~~~~~~~ */
+
+img.sport-logo {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1%;
+}
+
+#shortenName {
+	padding:10px 10px 0 15px;
+}
+
+#noSidePad {
+	padding: auto 0 auto 0;
+}
+
+#floatLeft {
+	float: left;
+	color: #A80C00;
+}
+
+#floatRight {
+	float: right;
+	color: #A80C00;
+}
+
+.sportName {
+	background-color:white;
+	border-radius:12px;
+	padding:3px;
+	border: 1px solid grey;
+}
+
+#mainCard {
+	background-color: #F0F0F0;
+	border:0.5px solid grey;
+	padding:25px;
+	border-radius:10px;
+}
+
+#mainCardImg {
+	width:100%;
+	margin-bottom:20px;
+	border-radius:7px;
+}
+
+#kickoffclipsSection {
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: #DBDBDB;
+}
+
+#podcastTitle {
+	background-color:#9A2214;
+	color: white;
+	text-align:center;
+	width: 100%;
+	border-radius: 3px;
+	margin-bottom: 0;
+	padding: 5px;
+}
+
+#kClipsLogo {
+	height: 7vh;
+	min-height: 50px;
+	padding-bottom: 3px;
+}
+
+#podTime {
+	color: #464646;
+	margin-bottom:0;
+}
+
+#podPic {
+	max-width:17vw;
+	min-width: 75px;
+	max-height:15vh;
+	min-height: 75px;
+	border-radius: 3px;
+	margin-bottom: 0;
+}
+
+#spotifyClips {
+	color: black;
+	margin-right: 2vw;
+}
+
+#fullWidth {
+	width: 100%;
+}
+
+/* ~~~~~~~~~~~~~ LEAGUE PAGES ~~~~~~~~~~~~ */
+
+img.leagueLogo {
+	width: 10vw;
+	min-width: 100px;
+	margin: 5px;
+	border-radius: 4px;
+}
+
+#league-heading {
+	color: white;
+	text-decoration-color: lightgrey;
+}
+
+#league-heading:hover {
+	color: lightgrey;
+}
+
+
+/* ~~~~~~~~~~~~~ POP ARTICLES ~~~~~~~~~~~~~~~ */
+
+.pop-articles {
+  padding: 2rem;
+}
+
+.pop-articles > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  /*
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 2000px; */
+}
+
+.pop-artic > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
+  /*
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 2000px; */
+}
+
+.pop-articles > ul > li {
+  /*border: 1px solid #E5E5E5;
+  height: auto;
+
+  width: 30vw; */
+  border-radius: .5rem;
+}
+
+a.pop {
+  background-color: #33669;
+  text-decoration: none;
+  color: blue;
+  border-radius: .25rem;
+  text-align: center;
+  display: inline-block;
+  transition: all .3s;
+  padding: .5rem 1rem;
+  margin: .5rem;
+}
+
+a.pop:hover {
+  opacity: .7;
+}
+
+/* ~~~~~~~~~~~~ Edit Image ~~~~~~~~~~~~~~ */
+img.edit-img {
+  max-height: 100px;
+}
+
+/* ~~~~~~~~~~~~ HOME PAGE Styles ~~~~~~~~~~~~~ */
+
+#leftCentreRight {
+	display:flex;
+	justify-content: space-between;
+	color: #A80C00;
+}
+
+#lead-story {
+	font-weight: bold;
+	font-style: italic;
+	font-family: 'Raleway', sans-serif !important;
+	font-size: 3em;
+	background-color: #A80C00;
+	box-shadow: 5px 15px 16px rgba(0,0,0,0.4);
+  color: white;
+	padding: 0 10px;
+	position: absolute;
+	left: 0px;
+	top: -10px;
+	display: inline-block;
+	z-index: 250;
+}
+
+#lead-story::after {
+	content: "";
+  display: inline-block;
+  border-bottom: 1.21em solid transparent;
+  border-left: 1.21em solid #A80C00;
+  position: absolute;
+  top: 0px;
+  right: -1.20em;
+}
+
+.topHeader {
+	position: absolute;
+	top: -10px;
+	box-shadow: 0px 5px 16px rgba(0,0,0,0.4);
+	z-index: 100;
+}
+
+#homeSectionHeader {
+	font-weight: bold;
+	font-style: italic;
+	font-family: 'Raleway', sans-serif !important;
+	font-size: 2.5em;
+	text-shadow: 1px 1px 1px #505050;
+	line-height: 0.95;
+	text-align: center;
+	background-color: #A80C00;
+  color: white;
+}
+
+#topHeaderPic {
+	min-height: 6em;
+	height: inherit;
+	width: 10em;
+	margin-bottom: 0;
+	object-fit: cover;
+}
+
+@media (max-width: 48em) {
+	#topHeaderPic {
+		height: 8em;
+		width: 8em;
+	}
+}
+
+#stat-center {
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+}
+
+#card-main-hover:hover {
+	transform: scale(1.01);
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.6);
+	transition: 0.3s;
+}
+
+#podcast-title-mid {
+	display: inline-flex;
+	justify-content:center;
+}
+
+#podcast-hover {
+	height: 100%;
+}
+
+#podcast-hover:hover {
+	transform: scale(1.09);
+	box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.6);
+	transition: 0.3s;
+}
+
+#card-hover {
+	border-radius: 0 0 19px 19px;
+	height: 100%;
+}
+
+#card-hover:hover {
+	transform: scale(1.02);
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.6);
+	transition: 0.3s;
+}
+
+#card-border {
+	border-radius: 0 0 18px 18px;
+}
+
+#card-image {
+	border-radius: 0;
+	height: 30vh;
+	min-height: 200px;
+	object-fit: cover;
+}
+
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: auto;
+    content: "";
+    background-color: rgba(0,0,0,0);
+}
+
+#readMoreRed {
+	background-color: #A80C00;
+	border-radius: 0 0 18px 18px;
+}
+
+#readMore {
+	color: white;
+	font-weight: bold;
+	font-style: italic;
+	font-family: 'Raleway', sans-serif !important;
+	width: 100%;
+}
+
+
+.containment {
+	position: relative;
+  text-align: center;
+  color: white;
+	margin:20px;
+	margin-top: 0;
+	text-shadow: 1px 1px 1px black;
+}
+
+#minicontain {
+	margin: 0;
+}
+
+img.contained {
+	-webkit-filter: grayscale(10%) contrast(40%);
+     -moz-filter: grayscale(10%) contrast(40%);
+       -o-filter: grayscale(10%) contrast(40%);
+      -ms-filter: grayscale(10%) contrast(40%);
+          filter: grayscale(10%) contrast(30%);
+	border-radius: 7px;
+}
+
+img.contained:hover {
+	-webkit-filter: grayscale(10%) contrast(40%);
+     -moz-filter: grayscale(10%) contrast(40%);
+       -o-filter: grayscale(10%) contrast(40%);
+      -ms-filter: grayscale(10%) contrast(40%);
+          filter: grayscale(0%) contrast(75%);
+	border-radius: 2%;
+	transition: 0.1s;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+	text-align: left;
+}
+
+.top-right {
+	position: absolute;
+  top: 8px;
+  right: 16px;
+	text-align: right;
+}
+
+.bottom-left:hover {
+  text-shadow: 2px 1px 2px black;
+	text-decoration: underline;
+}
+
+a.empty {
+	text-shadow: 1px 1px 1px black;
+	color: inherit;
+	text-decoration: none;
+}
+
+a.empty:hover {
+	color: inherit;
+	text-decoration: underline;
+	border-radius: 2%;
+}
+
+/* ~~~~~~~ Colours ~~~~~~~ */
+#kickred {
+	color: #BF5454;
+}
+
+#backblue {
+	background-color: #303539;
+	color: #336699;
+}
+
+/* ~~~~~~~~~~~~~~~ Admin Pages ~~~~~~~~~~~~~~~ */
+#ad-title {
+	width:100%;
+	text-align: center;
+	color: #BF5454;
+	margin: 1vh;
+}
+
+#shorts {
+	text-align: left;
+	colour:black;
+	margin: auto auto 0 1em;
+}
+
+.logoutBtn {
+	margin-top: 1vh;
+}
+
+#shorts:hover {
+	color: #BF5454;
+}
+
+#but-create {
+	margin-bottom: 1em;
+}
+
+#centered {
+	width:100%;
+	text-align: center;
+}
+
+.white {
+	color:white;
+	margin-bottom: 1em;
+}
+
+.white:hover {
+	color:lightgrey;
+	background-color: inherit;
+	text-decoration: none;
+}
+
+.piece {
+	border-radius: 5px;
+	border: 1px solid grey;
+	color: #FEFEFF;
+	min-height: 5vh;
+	width: 100%;
+	padding: 5px 0 10px 25px;
+	margin-top: 1vh;
+}
+
+.about-us {
+	line-height: 2em;
+	color:#4B2637;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+#KLogo {
+	padding: 3em;
+}
+
+#aboutpad {
+	padding: 0.5em 0.5em 0;
+	text-align: left;
+	color:#9A073C;
+}
+
+#abouttop {
+	margin: 0;
+	padding: 1vh 5vw 5vh;
+}
+
+#about-uss {
+	padding: 3vh 3vw 0 2vw;
+	text-align: center;
+}
+
+#textRed {
+	color: #A80C00;
+}
+
+#textBlack {
+	color: black;
+}
+
+#textWhite {
+	color: white;
+}
+
+#backred {
+	background-color: #BF5454;
+}
+
+#backkred {
+	background-color: #A80C00;
+}
+
+#bg-grey {
+	background-color: #5a777f;
+}
+
+#piyellow {
+	background-color: #F5C344;
+}
+
+#piblue {
+	background-color: #51A5D3;
+}
+
+#pired {
+	background-color: #E77470;
+}
+
+#piaqua {
+	background-color: #7BC0DB;
+}
+
+#backgrey {
+	background-color: #EFEFEF;
+}
+
+#backwhite {
+	background-color: #FEFEFF;
+}
+
+#backwhey {
+	background-color: #E1E1E1;
+}
+
+#backdgrey {
+	background-color: darkgrey;
+}
+
+#backdarkergrey {
+	background-color: #707070;
+	color: white;
+}
+
+/* ------ TODAY IN HISTORY ------- */
+#border-today {
+	text-align:center;
+	background-color:#F2ECE9;
+	border:0.5px solid grey;
+}
+
+.middle {
+	width: 95%;
+	margin: auto;
+}
+
+#darker-today {
+	margin-bottom:0;
+	color:#4B2637;
+}
+#source-today {
+	margin:0 0 10px 0;
+	text-align:right;
+}
+
+/* ~~~~~~------ AUTHOR PAGES -------~~~~~~ */
+
+img.profile-pic {
+	max-width: 150px;
+	max-height: 150px;
+	border-radius: 50%;
+}
+
+.allauths {
+	text-align: center;
+	width:100%;
+	margin: 3vh 0 0 0;
+	padding:20px;
+	background-color: #FEFEFE;
+	color: #BF5454;
+	box-shadow: 0px 1px 3px grey;
+}
+
+#auth-art {
+	font-weight: bold;
+	font-style: italic;
+	font-family: 'Raleway', sans-serif !important;
+	font-size: 2em;
+	text-shadow: 1px 1px 1px #505050;
+	line-height: 0.95;
+	text-align: center;
+	background-color: #A80C00;
+  color: white;
+}
+
+#authpic {
+	max-width:15vw;
+	max-height:12vh
+}
+
+#spacetop {
+	margin-top:20px;
+}
+
+#padtopbot {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
