@@ -1,5 +1,3 @@
-FinishedAuthors
-
 @extends('layout')
 
 @section('title')
