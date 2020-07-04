@@ -9,7 +9,7 @@
       <div class="mt-4">
         <h2 class="p-2" id="homeSectionHeader">&nbsp; ALL PODCASTS &nbsp;</h2>
       </div>
-    </div>
+    </div>    
 
     <div class="row">
       @foreach ($podcasts as $podcast)

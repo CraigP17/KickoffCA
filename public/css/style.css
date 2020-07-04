@@ -311,7 +311,7 @@ img.otherArts {
 
 #podcast-title {
 	background-color: #f9faf5;
-	color: #A80C00; 
+	color: #A80C00;
 	padding: 0.5em;
 	font-weight: bold;
 	font-style: italic;
@@ -422,8 +422,12 @@ img.sport-logo {
 }
 
 #podcastTitle {
-	background-color:#9A2214;
-	color: white;
+	font-weight: bold;
+	font-style: italic;
+	font-family: 'Raleway', sans-serif !important;
+	font-size: 1.5em;
+	background-color: #A80C00;
+  color: white;
 	text-align:center;
 	width: 100%;
 	border-radius: 3px;

@@ -19,15 +19,28 @@
 
       <div class="row">
 
+        {{-- Headline Article --}}
         <div class="col-md-7">
-          <div class="thumbnail" id="mainCard">
-            <img src="/storage/Images/Articles/{{$league_articles[0]->header_img}}" alt="Top Headline Image" id="mainCardImg">
-            <h1 style="letter-spacing: -0.03em;"> <a style="color:black;" href="/articles/{{$league_articles[0]->slug}}"> {{$league_articles[0]->title}} </a> </h1>
-            <p style="margin-bottom:3px" id="textRed">{{$league_articles[0]->author}} <span style="float:right">{{date('F j, Y g:i A', strtotime($league_articles[0]->date))}}</span> </p>
-            <h4> <small>{{$league_articles[0]->description}}</small> </h4>
+          <div class="thumbnail mb-3">
+            <div class="card" id="card-main-hover">
+              <img class="card-img-top" src="/storage/Images/Articles/{{$league_articles[0]->header_img}}" alt="Top Headline Image">
+              <div class="card-body pt-1">
+                <h3 class="card-title m-0 text-center" id="textBlack">{{$league_articles[0]->title}} </h2>
+                <hr class="mt-1 mb-2">
+                <div id="leftCentreRight">
+                  <h6>{{$league_articles[0]->author}}</h4>
+                  <h6>{{$league_articles[0]->league}}</h4>
+                  <h6>{{date('F j, Y', strtotime($league_articles[0]->date))}}</h4>
+                </div>
+                <hr class="m-0">
+                <h5 class="card-text mb-0"> <small>{{$league_articles[0]->description}}</small> </h5>
+                <a href="/articles/{{$league_articles[0]->slug}}" class="stretched-link"></a>
+              </div>
+            </div>
           </div>
         </div>
 
+        {{-- 2 Side Articles --}}
         <div class="col-md-5">
           <div class="row">
             <div class="containment">

@@ -4,7 +4,7 @@
 
 @section('content')
 
-  <div class="container-fluid" style="background-color: #b23a48">
+  <div class="container-fluid" id="backgroundImg">
     <div class="container" id="backwhey">
       <div class="row" id="padtopbot">
 
@@ -145,7 +145,7 @@
 
       </div>
 
-      <br> <br> <br>
+      <br>
 
     </div>
   </div>
