@@ -35,11 +35,11 @@
   </head>
 
   <body>
-    <div class="logoheader" id="allhead">
+    <div class="w-100" id="backLogo">
       <img src="/storage/Images/logoredbannershorter.png" class="logoimg" alt="Logo">
     </div>
 
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background: linear-gradient(to bottom, #2B2B2B 0%, #181818 100%);">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark py-0" style="background: linear-gradient(to bottom, #2B2B2B 0%, #141414 100%);">
 
       <button class="navbar-toggler" type="button" data-toggle="collapse"
       data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
@@ -48,22 +48,22 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto nav-justified w-100">
 
           <li class="nav-item"><a class="nav-link" href="/"> HOME </a></li>
 
           <li class="nav-item"><a class="nav-link" href="/podcasts"> PODCASTS </a></li>
 
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown text-center">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               SPORTS
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/sports/basketball">Basketball</a>
-              <a class="dropdown-item" href="/sports/football">Football</a>
-              <a class="dropdown-item" href="/sports/hockey">Hockey</a>
-              <a class="dropdown-item" href="/sports">All Sports</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #202020">
+              <a class="dropdown-item text-center" id="navDropLink" href="/sports/basketball">Basketball</a>
+              <a class="dropdown-item text-center" id="navDropLink" href="/sports/football">Football</a>
+              <a class="dropdown-item text-center" id="navDropLink" href="/sports/hockey">Hockey</a>
+              <a class="dropdown-item text-center" id="navDropLink" href="/sports">All Sports</a>
             </div>
           </li>
 
@@ -74,19 +74,19 @@
 
       </div>
 
-      <div style="float:right">
-        <a class="navbar-brand pb-0" id="textWhite">
-          <div class="">
-            <h4><b>@TheKickOffCA</b></h4>
-          </div>
+
+
+      <div class="ml-auto">
+        <span class="navbar-text mr-1 d-none d-sm-inline-block py-0" href="#" id="textWhite">
+          <h5 class="mb-0 py-0">&#64;TheKickOffCA</h5>
+        </span>
+        <a class="navbar-text m-0 py-0" target="_blank" href="https://twitter.com/thekickoffca">
+          {{-- <i class="fab fa-twitter fa-lg m-0" id="twitter"></i> --}}
+          <img src="/storage/Images/Logos/twitter.png" alt="Twitter" id="twitter">
         </a>
-        <a class="navbar-brand" target="_blank" href="https://twitter.com/thekickoffca">
-          <i class="fab fa-twitter fa-lg" id="twitter"></i>
-          {{-- <img src="/storage/Images/Logos/twitter-logo.png" alt="Twitter" class="logos" id="navl" style="width:40px;"> --}}
-        </a>
-        <a class="navbar-brand m-0" target="_blank" href="https://www.instagram.com/thekickoffca/">
-          <i class="fab fa-instagram fa-lg" id="iglogo"></i>
-          {{-- <img src="/storage/Images/Logos/IG-logo.png" alt="IG" style="width:40px;" id="iglogos"> --}}
+        <a class="navbar-text m-0 py-0" target="_blank" href="https://www.instagram.com/thekickoffca/">
+          {{-- <i class="fab fa-instagram fa-lg" id="iglogo"></i> --}}
+          <img src="/storage/Images/Logos/instagram.png" alt="Instagram" id="instagram">
         </a>
       </div>
 
