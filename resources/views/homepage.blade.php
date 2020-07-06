@@ -20,12 +20,12 @@
           <div class="card" id="card-main-hover">
             <img class="card-img-top" src="/storage/Images/Articles/{{$main_art->header_img}}" alt="Top Headline Image">
             <div class="card-body pt-1">
-              <h1 class="card-title m-0" id="textBlack">{{$main_art->title}} </h1>
+              <h2 class="card-title m-0" id="textBlack">{{$main_art->title}} </h2>
               <hr class="mt-1 mb-2">
               <div id="leftCentreRight">
-                <h4>{{$main_art->author}}</h4>
-                <h4>{{$main_art->league}}</h4>
-                <h4>{{date('F j, Y', strtotime($main_art->date))}}</h4>
+                <h5>{{$main_art->author}}</h5>
+                <h5>{{$main_art->league}}</h5>
+                <h5>{{date('F j, Y', strtotime($main_art->date))}}</h5>
               </div>
               <hr class="m-0">
               <h5 class="card-text"> <small>{{$main_art->description}}</small> </h5>

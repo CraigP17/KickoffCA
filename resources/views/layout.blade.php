@@ -36,7 +36,10 @@
 
   <body>
     <div class="w-100" id="backLogo">
-      <img src="/storage/Images/logoredbannershorter.png" class="logoimg" alt="Logo">
+      <picture>
+        <source media="(min-width:465px)" srcset="/storage/Images/logoredbannershorter.png">
+        <img src="/storage/Images/logoMobile.png" alt="Kickoff Logo" class="logoimg">
+      </picture>
     </div>
 
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark py-0" style="background: linear-gradient(to bottom, #2B2B2B 0%, #141414 100%);">
@@ -60,6 +63,7 @@
               SPORTS
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #202020">
+              <a class="dropdown-item text-center" id="navDropLink" href="/sports/baseball">Baseball</a>
               <a class="dropdown-item text-center" id="navDropLink" href="/sports/basketball">Basketball</a>
               <a class="dropdown-item text-center" id="navDropLink" href="/sports/football">Football</a>
               <a class="dropdown-item text-center" id="navDropLink" href="/sports/hockey">Hockey</a>

@@ -72,12 +72,13 @@ a:hover {
 
 #backLogo {
 	background-color: #2B2B2B;
-	min-height: 80px;
+	max-height: 75px;
 }
 
 img.logoimg {
   display: block;
-  height: 80px;
+  max-height: 75px;
+	width: auto;
 	margin: 0 auto 0 auto;
 }
 
