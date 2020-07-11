@@ -133,8 +133,16 @@ class ArticlesController extends Controller
         $others = Article::where([
           ['author', '=', $article->author],
           ['title', '!=', $article->title],
-        ])->orderBy('date', 'desc')->take(3)->get();
-        return view('articles.show', compact('article', 'author', 'others'));
+        ])->orderBy('date', 'desc')->take(4)->get();
+        $top_headlines = Article::where([
+          ['title', '!=', $article->title],
+          ['top_headline', true]
+        ])->orderBy('date', 'desc')->take(5)->get();
+        $sports = Article::where([
+          ['title', '!=', $article->title],
+          ['sport', '=', $article->sport]
+        ])->orderBy('date', 'desc')->take(4)->get();
+        return view('articles.article', compact('article', 'author', 'others', 'top_headlines', 'sports'));
     }
 
     /**

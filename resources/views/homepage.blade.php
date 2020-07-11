@@ -14,9 +14,9 @@
 
       {{-- The Lead Story --}}
       <div class="col-lg-7">
-        <h1 id="lead-story">THE LEAD</h1>
+        <h2 id="lead-story">THE LEAD</h2>
 
-        <div class="thumbnail" id="padtopbot">
+        <div class="thumbnail mb-2" id="padtopbot">
           <div class="card" id="card-main-hover">
             <img class="card-img-top" src="/storage/Images/Articles/{{$main_art->header_img}}" alt="Top Headline Image">
             <div class="card-body pt-1">
@@ -36,10 +36,10 @@
       </div>
 
       {{-- Top Headlines --}}
-      <div class="col-lg-5">
+      <div class="col-lg-5 col-md-7 mx-auto">
 
         <div class="mt-4">
-          <h2 class="topHeader p-1" id="homeSectionHeader">&nbsp; TOP HEADLINES &nbsp;</h2>
+          <h2 class="topHeader p-1 px-3" id="homeSectionHeader">TOP HEADLINES</h2>
         </div>
 
         <div class="pt-4">
@@ -49,7 +49,7 @@
                 class="list-group-item list-group-item-action p-0"
                 id="card-main-hover">
                 <article class="media">
-                  <figure class="media-left mb-0">
+                  <figure class="media-left mb-0 my-auto">
                     <img src="/storage/Images/Articles/{{$top_art->header_img}}" id="topHeaderPic">
                   </figure>
                   <div class="media-content">

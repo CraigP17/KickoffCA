@@ -259,18 +259,12 @@ li.logo:hover {
 
 /* ~~~~~~~~~~~~~~~~~~~ ARTICLE CSS STYLES ~~~~~~~~~~~~~~~~~~~ */
 
-h1.art-title {
-  text-align: center;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-h5.author {
-  padding-top: 20px;
-}
-
 p.content {
   font-size: 21px;
+}
+
+#p-line-height {
+	line-height: 1.1em;
 }
 
 img.art-author-img {
@@ -331,20 +325,36 @@ img.podcast-img-about {
   box-shadow: 1px 1px 3px black;
 }
 
-.in-article-image {
-  background-color: lightgrey;
-	margin-bottom:35px;
-	width: 75%;
-	min-width: 300px;
-	margin-left: auto;
-	margin-right: auto;
+.figure-article {
+	display: inline-block;
+  position: relative;
+  margin: 0;
 }
 
-img.art-img {
-	width:100%;
-	margin-bottom: 5px;
-	margin-left: auto;
-	margin-right: auto;
+.img-article {
+	display: block;
+  max-height: 50vh;
+}
+
+.figcaption-article {
+	position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+#article-blend {
+	background-color: transparent
+}
+
+#article-blend:hover {
+	background-color: #e0e0e0;
+}
+
+#article-mini-img {
+	width: 110px;
 }
 
 /* ~~~~~~~~~~~~~ SPORTS PAGES ~~~~~~~~~~~~ */
@@ -531,9 +541,10 @@ img.edit-img {
 	font-weight: bold;
 	font-style: italic;
 	font-family: 'Raleway', sans-serif !important;
-	font-size: 3em;
+	font-size: 2.5em;
 	background-color: #A80C00;
 	box-shadow: 5px 15px 16px rgba(0,0,0,0.4);
+	text-shadow: 1px 1px 1px #505050;
   color: white;
 	padding: 0 10px;
 	position: absolute;
@@ -564,7 +575,7 @@ img.edit-img {
 	font-weight: bold;
 	font-style: italic;
 	font-family: 'Raleway', sans-serif !important;
-	font-size: 2.5em;
+	font-size: 2.1em;
 	text-shadow: 1px 1px 1px #505050;
 	line-height: 0.95;
 	text-align: center;
@@ -929,6 +940,19 @@ img.profile-pic {
 #authpic {
 	max-width:15vw;
 	max-height:12vh
+}
+
+#art-header {
+	font-weight: bold;
+	font-style: italic;
+	font-family: 'Raleway', sans-serif !important;
+	font-size: 1.5em;
+	text-shadow: 1px 1px 1px #505050;
+	line-height: 0.95;
+	text-align: center;
+	background-color: #A80C00;
+  color: white;
+	padding: 10px;
 }
 
 #spacetop {
