@@ -18,7 +18,7 @@ class AuthorsController extends Controller
     public function index()
     {
       $authors = Author::orderBy('name')->get();
-      return view('authors.everyone', compact('authors'));
+      return view('authors.all-authors', compact('authors'));
     }
 
     /**
