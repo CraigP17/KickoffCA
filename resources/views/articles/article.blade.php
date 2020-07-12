@@ -18,7 +18,7 @@
 
           <img src="/storage/Images/Articles/{{$article->header_img}}"
                alt="{{$article->header_source}}"
-               class="w-100 pl-1 pr-1 mb-2">
+               class="w-100 mb-2">
 
           <div class="d-flex">
             <img src="/storage/Images/Authors/{{$author->profile_pic}}" alt="{{$author->name}}" class="art-author-img">
