@@ -50,7 +50,7 @@
                 id="card-main-hover">
                 <article class="media">
                   <figure class="media-left mb-0 mr-0 my-auto">
-                    <img src="/storage/Images/Articles/{{$top_art->header_img}}" id="topHeaderPic" style="padding: 10px;">
+                    <img src="/storage/Images/Articles/{{$top_art->header_img}}" id="topHeaderPic">
                   </figure>
                   <div class="media-content">
                     <div class="content">

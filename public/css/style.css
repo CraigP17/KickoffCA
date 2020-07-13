@@ -80,6 +80,7 @@ img.logoimg {
   max-height: 75px;
 	width: auto;
 	margin: 0 auto 0 auto;
+	background-color: #A80C00;
 }
 
 #pophead {
@@ -593,6 +594,7 @@ img.edit-img {
 	height: inherit;
 	width: 10em;
 	margin-bottom: 0;
+	padding: 10px;
 	object-fit: cover;
 }
 
@@ -895,7 +897,7 @@ a.empty:hover {
 #border-today {
 	text-align:center;
 	background-color:#F2ECE9;
-	border:0.5px solid grey;
+	border: 0.5px solid grey;
 }
 
 .middle {

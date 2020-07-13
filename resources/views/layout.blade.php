@@ -38,7 +38,7 @@
     <div class="w-100" id="backLogo">
       <picture>
         <source media="(min-width:465px)" srcset="/storage/Images/logoredbannershorter.png">
-        <img src="/storage/Images/logoMobile.png" alt="Kickoff Logo" class="logoimg">
+        <img src="/storage/Images/mobileLogo.png" alt="Kickoff Logo" class="logoimg">
       </picture>
     </div>
 
