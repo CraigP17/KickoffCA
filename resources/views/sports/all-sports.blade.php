@@ -17,7 +17,7 @@
 
       <div class="row">
         @foreach ($sports as $sport)
-          <div class="col-md-3 col-6 p-2">
+          <div class="col-lg-3 col-md-4 col-6 p-2">
             <a href="/sports/{{$sport->slug}}">
               <div class="card" id="cardi">
                 <img src="/storage/Images/Sports/{{$sport->img_logo}}" class="sport-logo" alt="{{$sport->name}}" style="text-align:center">
@@ -27,7 +27,7 @@
           </div>
         @endforeach
         @foreach ($sports as $sport)
-          <div class="col-md-3 col-6" style="padding:10px;">
+          <div class="col-lg-3 col-md-4 col-6 p-2">
             <a href="/sports/{{$sport->slug}}">
               <div class="card" id="cardi">
                 <img src="/storage/Images/Sports/{{$sport->img_logo}}" class="sport-logo" alt="{{$sport->name}}" style="text-align:center">

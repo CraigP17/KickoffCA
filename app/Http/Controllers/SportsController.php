@@ -24,7 +24,7 @@ class SportsController extends Controller
         $recents = [];
         $sports = Sport::orderBy('name')->get();
         #dd($sports);
-        return view('sports.all', compact('sports', 'recents'));
+        return view('sports.all-sports', compact('sports', 'recents'));
     }
 
     /**
