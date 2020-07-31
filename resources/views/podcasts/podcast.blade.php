@@ -9,7 +9,7 @@
       <div class="row" id="padtopbot">
 
         <div class="col-md-3" style="text-align:center;">
-          <img src="/storage/Images/Podcasts/{{$podcast->profile_pic}}" alt="" class="podcast-img-about">
+          <img src="{{$podcast->dp_url}}" alt="" class="podcast-img-about">
         </div>
 
         <div class="col-md-9" style="font-size:125%;text-align:center;

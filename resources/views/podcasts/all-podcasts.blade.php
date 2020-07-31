@@ -24,7 +24,7 @@
           <a href="/podcasts/{{$group->slug}}" class="list-group-item list-group-item-action h-100" id="card-main-hover">
             <div class="d-flex flex-lg-row flex-md-column flex-sm-row flex-column">
               <div class="d-flex justify-content-center mb-2">
-                <img class="pod-img-about" src="/storage/Images/Podcasts/{{$group->profile_pic}}" alt="{{$group->name}}">
+                <img class="pod-img-about" src="{{$group->dp_url}}" alt="{{$group->name}}">
               </div>
               <div class="w-100 mt-0 d-sm-inline">
                 <h3 class="art-pod-title mb-0 text-center w-100" id="textRed">

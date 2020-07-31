@@ -54,8 +54,8 @@
         <label class="label" for="profile_pic">Profile Image</label>
 
         <div class="control">
-          <input type="file" name="profile_pic" class="form-control" >Current: "{{$podcast->profile_pic}}"
-          <img src="/storage/Images/Podcasts/{{$podcast->profile_pic}}" alt="" class="edit-img">
+          <input type="file" name="profile_pic" class="form-control" >Current: "{{$podcast->dp_name}}"
+          <img src="{{$podcast->dp_url}}" alt="" class="edit-img">
         </div>
       </div>
 

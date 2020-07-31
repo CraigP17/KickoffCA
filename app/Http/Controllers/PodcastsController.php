@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PodcastsController extends Controller
 {
+  
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +21,7 @@ class PodcastsController extends Controller
       return view('podcasts.all-podcasts', compact('podcasts'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,6 +31,7 @@ class PodcastsController extends Controller
      {
        return view('podcasts.create-group');
      }
+
 
     /**
      * Store a newly created resource in storage.
@@ -51,16 +54,20 @@ class PodcastsController extends Controller
       ]);
 
         $attributes['slug'] = str_slug($attributes['name'], "-");
-
+        unset($attributes['profile_pic']);
         $new_pic_name = rand() . '.' . $request->file('profile_pic')->getClientOriginalName();
-        $attributes['profile_pic'] = $new_pic_name;
-        Storage::putFileAs('public/Images/Podcasts', $request->file('profile_pic'), $new_pic_name);
+        $attributes['dp_name'] = $new_pic_name;
+
+        $path = $request->file('profile_pic')->storeAs('images/podcasts', $new_pic_name, 's3');
+        $attributes['dp_url'] = Storage::disk('s3')->url($path);
+        Storage::disk('s3')->setVisibility($path, 'public');
 
         Podcast::create($attributes);
         // dd($attributes);
 
         return redirect('/podcasts');
     }
+
 
     /**
      * Display the specified resource.
@@ -74,6 +81,7 @@ class PodcastsController extends Controller
       return view('podcasts.podcast', compact('podcast'));
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -84,6 +92,7 @@ class PodcastsController extends Controller
     {
         return view('podcasts.edit-group', compact('podcast'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -110,17 +119,28 @@ class PodcastsController extends Controller
       $attributes['slug'] = str_slug($attributes['name'], "-");
 
       if ($request->hasFile('profile_pic')) {
+
+        //  Delete Old Pic off AWS
+        $path = 'images/podcasts/' . $podcast->dp_name;
+        Storage::disk('s3')->delete($path);
+
+        // Rename New Pic
         $new_pic_name = rand() . '.' . $request->file('profile_pic')->getClientOriginalName();
-        $path = 'public/Images/Podcasts/' . $podcast->profile_pic;
-        Storage::delete($path);
-        $attributes['profile_pic'] = $new_pic_name;
-        Storage::putFileAs('public/Images/Podcasts', $request->file('profile_pic'), $new_pic_name);
+        unset($attributes['profile_pic']);
+        $attributes['dp_name'] = $new_pic_name;
+
+        // Store New Pic
+        $path = $request->file('profile_pic')->storeAs('images/podcasts', $new_pic_name, 's3');
+        $attributes['dp_url'] = Storage::disk('s3')->url($path);
+        Storage::disk('s3')->setVisibility($path, 'public');
+
       }
 
       $podcast->update($attributes);
 
       return redirect('/podcasts');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -130,10 +150,16 @@ class PodcastsController extends Controller
      */
     public function destroy(Podcast $podcast)
     {
+      // Remove Pod shows associated with Podcast
       $pods = Pod::where('group_name', 'like',"{$podcast->name}")->get();
       foreach ($pods as $pod) {
         $pod->delete();
       }
+
+      //  Delete Old Pic off AWS
+      $path = 'images/podcasts/' . $podcast->dp_name;
+      Storage::disk('s3')->delete($path);
+
       $podcast->delete();
       return redirect('/podcasts');
     }
