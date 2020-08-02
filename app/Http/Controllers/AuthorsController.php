@@ -21,6 +21,7 @@ class AuthorsController extends Controller
       return view('authors.all-authors', compact('authors'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -31,6 +32,7 @@ class AuthorsController extends Controller
         return view('authors.create-author');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -40,24 +42,30 @@ class AuthorsController extends Controller
     public function store(Request $request)
     {
       $attributes = request()->validate([
-      'name'=>'required|min:1|max:255',
-      'description'=>'required|min:1',
-      'profile_pic'=>'required|image|mimes:jpeg,png,jpg,gif',
-      'twitter'=>'max:255',
-      'youtube'=>'max:255',
-      'email'=>'max:255'
-    ]);
+        'name'=>'required|min:1|max:255',
+        'description'=>'required|min:1',
+        'profile_pic'=>'required|image|mimes:jpeg,png,jpg,gif',
+        'twitter'=>'max:255',
+        'youtube'=>'max:255',
+        'email'=>'max:255'
+      ]);
       $attributes['slug'] = str_slug($attributes['name'], "-");
 
+      unset($attributes['profile_pic']);
       $pic_name = rand() . '.' . $request->file('profile_pic')->getClientOriginalName();
-      $attributes['profile_pic'] = $pic_name;
-      Storage::putFileAs('public/Images/Authors', $request->file('profile_pic'), $pic_name);
+      $attributes['dp_name'] = $pic_name;
+
+      $path = $request->file('profile_pic')->storeAs('images/authors', $pic_name, 's3');
+      $attributes['dp_url'] = Storage::disk('s3')->url($path);
+      Storage::disk('s3')->setVisibility($path, 'public');
+
       Author::create($attributes);
 
       $redir = '/authors/' . $attributes['slug'];
 
       return redirect($redir);
     }
+
 
     /**
      * Display the specified resource.
@@ -73,6 +81,7 @@ class AuthorsController extends Controller
       return view('authors.author', compact('author', 'podcast', 'article'));
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -84,6 +93,7 @@ class AuthorsController extends Controller
         return view('authors.edit-author', compact('author'));
     }
 
+
     /**
      * Update the specified resource in storage.
      *
@@ -94,23 +104,33 @@ class AuthorsController extends Controller
     public function update(Request $request, Author $author)
     {
       $attributes = request()->validate([
-      'name'=>'required|min:1|max:255',
-      'description'=>'required|min:1',
-      'profile_pic'=>'image|mimes:jpeg,png,jpg,gif',
-      'twitter'=>'max:255',
-      'youtube'=>'max:255',
-      'email'=>'max:255'
-    ]);
+        'name'=>'required|min:1|max:255',
+        'description'=>'required|min:1',
+        'profile_pic'=>'image|mimes:jpeg,png,jpg,gif',
+        'twitter'=>'max:255',
+        'youtube'=>'max:255',
+        'email'=>'max:255'
+      ]);
 
       $attributes['slug'] = str_slug($request['name'], "-");
       //$attributes['owner_id'] = auth()->id();
 
       if ($request->hasFile('profile_pic')) {
-        $p_name = rand() . '.' . $request->file('profile_pic')->getClientOriginalName();
-        $path = 'public/Images/Authors/' . $author->profile_pic;
-        Storage::delete($path);
-        $attributes['profile_pic'] = $p_name;
-        Storage::putFileAs('public/Images/Authors', $request->file('profile_pic'), $p_name);
+
+        //  Delete Old Pic off AWS
+        $path = 'images/authors/' . $author->dp_name;
+        Storage::disk('s3')->delete($path);
+
+        // Rename New Pic
+        $new_pic_name = rand() . '.' . $request->file('profile_pic')->getClientOriginalName();
+        unset($attributes['profile_pic']);
+        $attributes['dp_name'] = $new_pic_name;
+
+        // Store New Pic
+        $path = $request->file('profile_pic')->storeAs('images/authors', $new_pic_name, 's3');
+        $attributes['dp_url'] = Storage::disk('s3')->url($path);
+        Storage::disk('s3')->setVisibility($path, 'public');
+
       }
 
       $author->update($attributes);
@@ -118,6 +138,7 @@ class AuthorsController extends Controller
       $redir = '/authors/' . $attributes['slug'];
       return redirect($redir);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -127,8 +148,10 @@ class AuthorsController extends Controller
      */
     public function destroy(Author $author)
     {
-      $logo_path = 'public/Images/Authors/' . $author->profile_pic;
-      Storage::delete($logo_path);
+      //  Delete Old Pic off AWS
+      $path = 'images/authors/' . $author->dp_name;
+      Storage::disk('s3')->delete($path);
+
       $author->delete();
       return redirect('/');
     }

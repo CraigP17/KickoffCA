@@ -16,7 +16,7 @@
     <div class="row p-2 pt-4" style="box-shadow: 0px 1px 3px grey;" id="backwhite">
 
       <div class="col-12 col-md-3 mb-2" style="text-align: center">
-        <img src="/storage/Images/Authors/{{$author->profile_pic}}" alt="" class="profile-pic">
+        <img src="{{$author->dp_url}}" alt="" class="profile-pic">
       </div>
       <div class="col-12 col-md-9">
         <h1 class="text-md-left text-center"> {{$author->name}} </h1>
@@ -59,7 +59,7 @@
               <a href="/podcasts/{{$group->slug}}" class="list-group-item list-group-item-action">
                 <div class="d-flex flex-md-row flex-column">
                   <div class="d-flex justify-content-center mb-2">
-                    <img class="author-img-about" src="/storage/Images/Podcasts/{{$group->profile_pic}}" alt="{{$group->name}}">
+                    <img class="author-img-about" src="{{$group->dp_url}}" alt="{{$group->name}}">
                   </div>
                   <div class="w-100 mt-0 d-sm-inline">
                     <h3 class="art-pod-title mb-0 text-center w-100">

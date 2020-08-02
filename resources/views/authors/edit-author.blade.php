@@ -58,8 +58,8 @@
         <div class="field-body">
           <div >
             <div class="control is-expanded">
-              <input type="file" name="profile_pic" class="form-control">Current: "{{$author->profile_pic}}"
-              <img src="/storage/Images/Authors/{{$author->profile_pic}}" alt="" class="edit-img">
+              <input type="file" name="profile_pic" class="form-control">Current: "{{$author->dp_name}}"
+              <img src="{{$author->dp_url}}" alt="" class="edit-img">
             </div>
           </div>
         </div>

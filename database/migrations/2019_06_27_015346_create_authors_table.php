@@ -17,10 +17,12 @@ class CreateAuthorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('description');
-            $table->string('profile_pic')->default('default.png');
+            $table->string('dp_name');
+            $table->string('dp_url');
             $table->text('podcasts')->nullable();
             $table->string('twitter')->nullable();
             $table->string('youtube')->nullable();
+            $table->string('email')->nullable();
             $table->string('slug');
             $table->timestamps();
 

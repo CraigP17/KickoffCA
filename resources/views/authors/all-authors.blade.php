@@ -24,7 +24,7 @@
                id="card-main-hover">
               <div class="d-flex flex-lg-row flex-column">
                 <div class="d-flex justify-content-center mb-2">
-                  <img class="author-img-about" src="/storage/Images/Authors/{{$author->profile_pic}}" alt="{{$author->name}}">
+                  <img class="author-img-about" src="{{$author->dp_url}}" alt="{{$author->name}}">
                 </div>
                 <div class="w-100 mt-0 d-sm-inline">
                   <h3 class="art-pod-title mb-0 text-center w-100" id="textRed">
@@ -48,7 +48,7 @@
                id="card-main-hover">
               <div class="d-flex flex-lg-row flex-column">
                 <div class="d-flex justify-content-center mb-2">
-                  <img class="author-img-about" src="/storage/Images/Authors/{{$group->profile_pic}}" alt="{{$group->name}}">
+                  <img class="author-img-about" src="{{$group->dp_url}}" alt="{{$group->name}}">
                 </div>
                 <div class="w-100 mt-0 d-sm-inline">
                   <h3 class="art-pod-title mb-0 text-center w-100" id="textRed">
