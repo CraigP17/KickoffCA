@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}" />
+    <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
-    <script type="text/javascript" src="{{ URL::asset('js/script.js') }}"></script>
+    <script src="{{ URL::asset('js/script.js') }}" type="text/javascript" ></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -37,8 +37,8 @@
   <body>
     <div class="w-100" id="backLogo">
       <picture>
-        <source media="(min-width:465px)" srcset="/storage/Images/logoredbannershorter.png">
-        <img src="/storage/Images/mobileLogo.png" alt="Kickoff Logo" class="logoimg">
+        <source media="(min-width:465px)" srcset="https://kickoff-test.s3.ca-central-1.amazonaws.com/images/layout/logoredbannershorter.png">
+        <img src="https://kickoff-test.s3.ca-central-1.amazonaws.com/images/layout/mobileLogo.png" alt="Kickoff Logo" class="logoimg">
       </picture>
     </div>
 
@@ -86,11 +86,11 @@
         </span>
         <a class="navbar-text m-0 py-0" target="_blank" href="https://twitter.com/thekickoffca">
           {{-- <i class="fab fa-twitter fa-lg m-0" id="twitter"></i> --}}
-          <img src="/storage/Images/Logos/twitter.png" alt="Twitter" id="twitter">
+          <img src="https://kickoff-test.s3.ca-central-1.amazonaws.com/images/social-logos/twitter.png" alt="Twitter" id="twitter">
         </a>
         <a class="navbar-text m-0 py-0" target="_blank" href="https://www.instagram.com/thekickoffca/">
           {{-- <i class="fab fa-instagram fa-lg" id="iglogo"></i> --}}
-          <img src="/storage/Images/Logos/instagram.png" alt="Instagram" id="instagram">
+          <img src="https://kickoff-test.s3.ca-central-1.amazonaws.com/images/social-logos/instagram.png" alt="Instagram" id="instagram">
         </a>
       </div>
 
@@ -108,7 +108,7 @@
       <div class="footers">
         <div class="row">
           <div class="col-md-6 text-md-left text-center">
-            <img src="/storage/Images/FooterLogo.png" alt="Logo" id="footerLogo">
+            <img src="https://kickoff-test.s3.ca-central-1.amazonaws.com/images/layout/FooterLogo.png" alt="Logo" id="footerLogo">
           </div>
           <div class="col-md-6">
             <div class="row">
