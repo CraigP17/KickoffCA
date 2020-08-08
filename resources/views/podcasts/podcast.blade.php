@@ -16,14 +16,14 @@
         justify-content:center;padding:35px;padding-top:5px;padding-bottom:0">
           <h1>{{$podcast->name}}</h1>
           <p>{{$podcast->description}}</p>
-          <h4>{{$podcast->authors}}</h4>
-          <h3>
+          <h4 id="textRed">{{$podcast->authors}}</h4>
+          <h3 id="textRed">
             @isset($podcast->spotify)
-              <a href="//www.youtube.com/user/{{$podcast->spotify}}" target="_blank">Spotify</a>
+              <a href="{{$podcast->spotify}}" target="_blank">Spotify</a>
             @endisset
             @isset($podcast->apple)
               &nbsp; &#124; &nbsp;
-              <a href="//www.youtube.com/user/{{$podcast->apple}}" target="_blank">Apple Podcasts</a>
+              <a href="{{$podcast->apple}}" target="_blank">Apple Podcasts</a>
             @endisset
             @isset($podcast->other_link)
               &nbsp; &#124; &nbsp;
@@ -129,7 +129,7 @@
             @foreach ($podcast->pods as $episode)
               <li class="list-group-item">
                 <h2>{{$episode->name}}
-                  <span style="float:right;font-size:75%;">{{(new dateTime($episode->date))->format('F j, Y')}}</span>
+                  <span style="float:right;font-size:75%;" id="floatRight">{{(new dateTime($episode->date))->format('F j, Y')}}</span>
                 </h2>
                 <p>{{$episode->description}}</p>
 
