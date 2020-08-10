@@ -48,20 +48,18 @@ class SportsController extends Controller
       $attributes = request()->validate([
       'name'=>'required|min:1|max:255',
       'img_logo'=>'required|image|mimes:jpeg,png,jpg,gif',
-      'img_header'=>'required|image|mimes:jpeg,png,jpg,gif'
     ]);
 
       $attributes['slug'] = str_slug($attributes['name'], "-");
       //$attributes['owner_id'] = auth()->id();
 
+      unset($attributes['img_logo']);
+      $pic_name = rand() . '.' . $request->file('img_logo')->getClientOriginalName();
+      $attributes['dp_name'] = $pic_name;
 
-      $new_logo_name = rand() . '.' . $request->file('img_logo')->getClientOriginalName();
-      $new_header_name = rand() . '.' . $request->file('img_header')->getClientOriginalName();
-      $attributes['img_logo'] = $new_logo_name;
-      $attributes['img_header'] = $new_header_name;
-
-      Storage::putFileAs('public/Images/Sports', $request->file('img_logo'), $new_logo_name);
-      Storage::putFileAs('public/Images/Sports', $request->file('img_header'), $new_header_name);
+      $path = $request->file('img_logo')->storeAs('images/sports', $pic_name, 's3');
+      $attributes['dp_url'] = Storage::disk('s3')->url($path);
+      Storage::disk('s3')->setVisibility($path, 'public');
 
       Sport::create($attributes);
       // dd($attributes);
@@ -85,7 +83,7 @@ class SportsController extends Controller
         // Attach parent Kickoff Clip Podcast's profile picture
         $clips = Clip::where('sport', $sport->name)->orderBy('date', 'desc')->get()->take(5);
         for ($i=0;$i<count($clips);$i++) {
-          $pic = Podcast::select('profile_pic')->where('name', $clips[$i]['group_name'])->pluck('profile_pic');
+          $pic = Podcast::select('dp_url')->where('name', $clips[$i]['group_name'])->pluck('dp_url');
           $clips[$i]['group_photo']= $pic[0];
         }
 
@@ -113,33 +111,35 @@ class SportsController extends Controller
      */
     public function update(Request $request, Sport $sport)
     {
-      $attributes = request()->validate([
-      'name'=>'required|min:1|max:255',
-      'img_logo'=>'image|mimes:jpeg,png,jpg,gif',
-      'img_header'=>'image|mimes:jpeg,png,jpg,gif'
-      ]);
+        $attributes = request()->validate([
+        'name'=>'required|min:1|max:255',
+        'img_logo'=>'image|mimes:jpeg,png,jpg,gif',
+        ]);
 
-      $attributes['slug'] = str_slug($request['name'], "-");
-      //$attributes['owner_id'] = auth()->id();
+        $attributes['slug'] = str_slug($request['name'], "-");
+        //$attributes['owner_id'] = auth()->id();
 
-      if ($request->hasFile('img_logo')) {
-        $new_logo_name = rand() . '.' . $request->file('img_logo')->getClientOriginalName();
-        $path = 'public/Images/Sports/' . $sport->img_logo;
-        Storage::delete($path);
-        $attributes['img_logo'] = $new_logo_name;
-        \Storage::putFileAs('public/Images/Sports', $request->file('img_logo'), $new_logo_name);
-      }
-      if ($request->hasFile('img_header')) {
-        $new_header_name = rand() . '.' . $request->file('img_header')->getClientOriginalName();
-        $path = 'public/Images/Sports/' . $sport->img_header;
-        Storage::delete($path);
-        $attributes['img_header'] = $new_header_name;
-        \Storage::putFileAs('public/Images/Sports', $request->file('img_header'), $new_header_name);
-      }
+        if ($request->hasFile('img_logo')) {
+          
+            //  Delete Old Pic off AWS
+            $path = 'images/sports/' . $sport->dp_name;
+            Storage::disk('s3')->delete($path);
 
-      $sport->update($attributes);
+            // Rename New Pic
+            $new_pic_name = rand() . '.' . $request->file('img_logo')->getClientOriginalName();
+            unset($attributes['img_logo']);
+            $attributes['dp_name'] = $new_pic_name;
 
-      return redirect('/sports');
+            // Store New Pic
+            $path = $request->file('img_logo')->storeAs('images/sports', $new_pic_name, 's3');
+            $attributes['dp_url'] = Storage::disk('s3')->url($path);
+            Storage::disk('s3')->setVisibility($path, 'public');
+        
+        }
+
+        $sport->update($attributes);
+
+        return redirect('/sports');
     }
 
     /**
@@ -150,10 +150,10 @@ class SportsController extends Controller
      */
     public function destroy(Sport $sport)
     {
-        $logo_path = 'public/Images/Sports/' . $sport->img_logo;
-        $head_path = 'public/Images/Sports/' . $sport->img_header;
-        Storage::delete($logo_path);
-        Storage::delete($head_path);
+        //  Delete Old Pic off AWS
+        $path = 'images/sports/' . $sport->dp_name;
+        Storage::disk('s3')->delete($path);
+
         $sport->delete();
         return redirect('/sports');
     }

@@ -122,15 +122,15 @@
                   <a href="{{$clip->link}}" target="_blank"
                     class="list-group-item list-group-item-action">
                     <article class="media">
-                      <figure class="media-left mb-0 pr-1">
-                        <img src="/storage/Images/Podcasts/{{$clip->group_photo}}" id="podPic">
+                      <figure class="media-left mb-0 pr-0">
+                        <img src="{{$clip->group_photo}}" id="podPic">
                       </figure>
                       <div class="media-content">
                         <div class="content">
-                          <h4 class="mb-1">
+                          <h5 class="mb-1">
                             {{$clip->group_name}} On {{$clip->name}}
-                          </h4>
-                          <p id="podTime">{{date('F j', strtotime($clip->date))}} <span style="float:right">{{$clip->duration}} &nbsp;</span> </p>
+                          </h5>
+                          <p id="podTime">{{date('F j', strtotime($clip->date))}} <span id="floatRight">{{$clip->duration}} &nbsp;</span> </p>
                         </div>
                       </div>
                     </article>
@@ -138,7 +138,7 @@
                 @endforeach
               </ul>
               <div class="d-flex justify-content-end" id="fullWidth">
-                <a href="http://www.spotify.com" id="spotifyClips">
+                <a href="http://www.spotify.com" id="spotifyClips" target="_blank">
                   <h4 class="m-0">View All</h4>
                 </a>
               </div>

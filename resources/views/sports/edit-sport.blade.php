@@ -43,18 +43,10 @@
         </div>
 
         <div class="control">
-          <input type="file" name="img_logo" class="form-control">Current: "{{$sport->img_logo}}"
-          <img src="/storage/Images/Sports/{{$sport->img_logo}}" alt="" class="edit-img">
+          <input type="file" name="img_logo" class="form-control">Current: "{{$sport->dp_name}}"
+          <img src="{{$sport->dp_url}}" alt="" class="edit-img">
         </div>
 
-        <div class="field-label is-normal">
-          <label class="label" for="img_header">Header Image</label>
-        </div>
-
-        <div class="control">
-          <input type="file" name="img_header" class="form-control">Current: "{{$sport->img_header}}"
-          <img src="/storage/Images/Sports/{{$sport->img_header}}" alt="" class="edit-img">
-        </div>
       </div>
 
       <div class="field">

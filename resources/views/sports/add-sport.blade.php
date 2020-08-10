@@ -45,13 +45,6 @@
           <input type="file" name="img_logo" class="form-control" required>
         </div>
 
-        <div class="field-label is-normal">
-          <label class="label" for="img_header">Header Image</label>
-        </div>
-
-        <div class="control">
-          <input type="file" name="img_header" class="form-control" required>
-        </div>
       </div>
 
       <div class="field">

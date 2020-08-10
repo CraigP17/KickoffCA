@@ -16,8 +16,18 @@ class CreateSportsTable extends Migration
         Schema::create('sports', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('img_logo');
-            $table->string('img_header');
+            $table->string('dp_url');
+            $table->string('dp_name');
+            $table->string('slug');
+            $table->timestamps();
+        });
+
+        Schema::create('leagues', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('parentSport');
+            $table->string('dp_url');
+            $table->string('dp_name');
             $table->string('slug');
             $table->timestamps();
         });
@@ -30,6 +40,7 @@ class CreateSportsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('leagues');
         Schema::dropIfExists('sports');
     }
 }
