@@ -44,10 +44,16 @@ class LeagueController extends Controller
           'parentSport'=>'required|min:1|max:255',
           'img_logo'=>'image|mimes:jpeg,png,jpg,gif',
         ]);
+        
         $attributes['slug'] = str_slug($attributes['name'],"-");
-        $new_logo_name = rand() . '.' . $request->file('img_logo')->getClientOriginalName();
-        $attributes['img_logo'] = $new_logo_name;
-        Storage::putFileAs('public/Images/Leagues', $request->file('img_logo'), $new_logo_name);
+        
+        unset($attributes['img_logo']);
+        $pic_name = rand() . '.' . $request->file('img_logo')->getClientOriginalName();
+        $attributes['dp_name'] = $pic_name;
+
+        $path = $request->file('img_logo')->storeAs('images/leagues', $pic_name, 's3');
+        $attributes['dp_url'] = Storage::disk('s3')->url($path);
+        Storage::disk('s3')->setVisibility($path, 'public');
 
         League::create($attributes);
 
@@ -96,11 +102,18 @@ class LeagueController extends Controller
         $attributes['slug'] = str_slug($request['name'], "-");
 
         if ($request->hasFile('img_logo')) {
-          $new_logo_name = rand() . '.' . $request->file('img_logo')->getClientOriginalName();
-          $path = 'public/Images/Leagues/' . $league->img_logo;
-          Storage::delete($path);
-          $attributes['img_logo'] = $new_logo_name;
-          \Storage::putFileAs('public/Images/Leagues', $request->file('img_logo'), $new_logo_name);
+            
+            $path = 'images/leagues/' . $league->dp_name;
+            Storage::disk('s3')->delete($path);
+
+            $new_pic_name = rand() . '.' . $request->file('img_logo')->getClientOriginalName();
+            unset($attributes['img_logo']);
+            $attributes['dp_name'] = $new_pic_name;
+
+            $path = $request->file('img_logo')->storeAs('images/leagues', $new_pic_name, 's3');
+            $attributes['dp_url'] = Storage::disk('s3')->url($path);
+            Storage::disk('s3')->setVisibility($path, 'public');
+            
         }
 
         $league->update($attributes);
@@ -117,8 +130,10 @@ class LeagueController extends Controller
     public function destroy(League $league)
     {
         $sport_page = '/sports/' . str_slug($league->parentSport, "-");
-        $logo_path = 'public/Images/Leagues/' . $league->img_logo;
-        Storage::delete($logo_path);
+        
+        $path = 'images/leagues/' . $league->dp_name;
+        Storage::disk('s3')->delete($path);
+        
         $league->delete();
         return redirect($sport_page);
     }

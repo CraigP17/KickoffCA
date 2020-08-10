@@ -61,8 +61,8 @@
           <label class="label" for="img_logo">Logo Image</label>
         </div>
         <div class="control">
-          <input type="file" name="img_logo" class="form-control">Current: "{{$league->img_logo}}"
-          <img src="/storage/Images/Leagues/{{$league->img_logo}}" alt="" class="edit-img">
+          <input type="file" name="img_logo" class="form-control">Current: "{{$league->dp_name}}"
+          <img src="{{$league->dp_url}}" alt="" class="edit-img">
         </div>
       </div>
 

@@ -18,16 +18,18 @@
 
         {{-- Filters --}}
         <div class="col-md-9" id="noSidePad">
-          <div class="d-flex flex-wrap justify-content-end">
-            <div class="align-self-center" style="display:inline-block">
-              <h4 class="mb-0" id="textRed"> <b>Filter:</b> </h4>
-            </div>
-            @foreach ($leagues as $league)
-              <a href="/sports/{{$sport->slug}}/{{$league->slug}}" class="empty mb-0">
-                <img src="/storage/Images/Leagues/{{$league->img_logo}}" class="leagueLogo" alt="">
-              </a>
-            @endforeach
-          </div>
+          @if (!$leagues->isEmpty())
+              <div class="d-flex flex-wrap justify-content-end">
+                <div class="align-self-center" style="display:inline-block">
+                  <h4 class="mb-0" id="textRed"> <b>Filter:</b> </h4>
+                </div>
+                @foreach ($leagues as $league)
+                  <a href="/sports/{{$sport->slug}}/{{$league->slug}}" class="empty mb-0">
+                    <img src="{{$league->dp_url}}" class="leagueLogo" alt="">
+                  </a>
+                @endforeach
+              </div>
+          @endif
         </div>
       </div>
 
