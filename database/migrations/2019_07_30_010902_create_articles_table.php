@@ -27,18 +27,22 @@ class CreateArticlesTable extends Migration
           $table->bigInteger('views')->default(0);
 
           $table->string('header_img');
+          $table->string('header_url');
           $table->string('header_source');
 
           $table->text('content_1');
           $table->string('image_1')->nullable();
+          $table->string('image_1_url')->nullable();
           $table->string('img1_caption')->nullable();
 
           $table->text('content_2')->nullable();
           $table->string('image_2')->nullable();
+          $table->string('image_1_url')->nullable();
           $table->string('img2_caption')->nullable();
 
           $table->text('content_3')->nullable();
           $table->string('image_3')->nullable();
+          $table->string('image_1_url')->nullable();
           $table->string('img3_caption')->nullable();
 
           $table->text('content_4')->nullable();

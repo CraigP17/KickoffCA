@@ -97,27 +97,35 @@ class ArticlesController extends Controller
 
         $new_header = rand() . '.' . $request->file('header_img')->getClientOriginalName();
         $attributes['header_img'] = $new_header;
-        Storage::putFileAs('public/Images/Articles', $request->file('header_img'), $new_header);
+        $path = $request->file('header_img')->storeAs('images/articles', $new_header, 's3');
+        $attributes['header_url'] = Storage::disk('s3')->url($path);
+        Storage::disk('s3')->setVisibility($path, 'public');
 
         if (isset($attributes['image_1'])) {
           $new_img1 = rand() . '.' . $request->file('image_1')->getClientOriginalName();
           $attributes['image_1'] = $new_img1;
-          Storage::putFileAs('public/Images/Articles', $request->file('image_1'), $new_img1);
+          $path = $request->file('image_1')->storeAs('images/articles', $new_img1, 's3');
+          $attributes['image_1_url'] = Storage::disk('s3')->url($path);
+          Storage::disk('s3')->setVisibility($path, 'public');
         }
         if (isset($attributes['image_2'])) {
           $new_img2 = rand() . '.' . $request->file('image_2')->getClientOriginalName();
           $attributes['image_2'] = $new_img2;
-          Storage::putFileAs('public/Images/Articles', $request->file('image_2'), $new_img2);
+          $path = $request->file('image_2')->storeAs('images/articles', $new_img2, 's3');
+          $attributes['image_2_url'] = Storage::disk('s3')->url($path);
+          Storage::disk('s3')->setVisibility($path, 'public');
         }
         if (isset($attributes['image_3'])) {
           $new_img3 = rand() . '.' . $request->file('image_3')->getClientOriginalName();
           $attributes['image_3'] = $new_img3;
-          Storage::putFileAs('public/Images/Articles', $request->file('image_3'), $new_img3);
+          $path = $request->file('image_3')->storeAs('images/articles', $new_img3, 's3');
+          $attributes['image_3_url'] = Storage::disk('s3')->url($path);
+          Storage::disk('s3')->setVisibility($path, 'public');
         }
 
         Article::create($attributes);
 
-        return redirect('/articles');
+        return redirect('/articles' . $attributes['slug']);
     }
 
     /**
@@ -196,37 +204,46 @@ class ArticlesController extends Controller
       if (empty($attributes['top_headline'])) {
         $attributes['top_headline'] = "0";
       }
-
+      
+      $init_path - 'images/articles';
       if ($request->hasFile('header_img')) {
-        $new_head = rand() . '.' . $request->file('header_img')->getClientOriginalName();
-        $path = 'public/Images/Articles/' . $article->header_img;
-        Storage::delete($path);
-        $attributes['header_img'] = $new_head;
-        Storage::putFileAs('public/Images/Articles', $request->file('header_img'), $new_head);
+        $old_path = $init_path . $article->header_img;
+        Storage::disk('s3')->delete($old_path);
+        $new_pic_name = rand() . '.' . $request->file('header_img')->getClientOriginalName();
+        $attributes['header_img'] = $new_pic_name;
+        $path = $request->file('header_img')->storeAs($init_path, $new_pic_name, 's3');
+        $attributes['header_url'] = Storage::disk('s3')->url($path);
+        Storage::disk('s3')->setVisibility($path, 'public');
       }
 
-      if ($request->hasFile('image_1')) {
-        $new_img1 = rand() . '.' . $request->file('image_1')->getClientOriginalName();
-        $path = 'public/Images/Articles/' . $article->image_1;
-        Storage::delete($path);
-        $attributes['image_1'] = $new_img1;
-        Storage::putFileAs('public/Images/Articles', $request->file('image_1'), $new_img1);
+      if ($request->hasFile('image_1')) {        
+        $old_path = $init_path . $article->image_1;
+        Storage::disk('s3')->delete($old_path);
+        $new_pic_name = rand() . '.' . $request->file('image_1')->getClientOriginalName();
+        $attributes['image_1'] = $new_pic_name;
+        $path = $request->file('image_1')->storeAs($init_path, $new_pic_name, 's3');
+        $attributes['image_1_url'] = Storage::disk('s3')->url($path);
+        Storage::disk('s3')->setVisibility($path, 'public');
       }
 
       if ($request->hasFile('image_2')) {
-        $new_img2 = rand() . '.' . $request->file('image_2')->getClientOriginalName();
-        $path = 'public/Images/Articles/' . $article->image_2;
-        Storage::delete($path);
-        $attributes['image_2'] = $new_img2;
-        Storage::putFileAs('public/Images/Articles', $request->file('image_2'), $new_img2);
+          $old_path = $init_path . $article->image_2;
+          Storage::disk('s3')->delete($old_path);
+          $new_pic_name = rand() . '.' . $request->file('image_2')->getClientOriginalName();
+          $attributes['image_2'] = $new_pic_name;
+          $path = $request->file('image_2')->storeAs($init_path, $new_pic_name, 's3');
+          $attributes['image_2_url'] = Storage::disk('s3')->url($path);
+          Storage::disk('s3')->setVisibility($path, 'public');
       }
 
       if ($request->hasFile('image_3')) {
-        $new_img3 = rand() . '.' . $request->file('image_3')->getClientOriginalName();
-        $path = 'public/Images/Articles/' . $article->image_3;
-        Storage::delete($path);
-        $attributes['image_3'] = $new_img3;
-        Storage::putFileAs('public/Images/Articles', $request->file('image_3'), $new_img3);
+          $old_path = $init_path . $article->image_3;
+          Storage::disk('s3')->delete($old_path);
+          $new_pic_name = rand() . '.' . $request->file('image_3')->getClientOriginalName();
+          $attributes['image_3'] = $new_pic_name;
+          $path = $request->file('image_3')->storeAs($init_path, $new_pic_name, 's3');
+          $attributes['image_3_url'] = Storage::disk('s3')->url($path);
+          Storage::disk('s3')->setVisibility($path, 'public');
       }
 
       $article->update($attributes);
@@ -244,27 +261,28 @@ class ArticlesController extends Controller
      */
     public function destroy(Article $article)
     {
+        $init_path = 'images/articles';
+        
+        $head_path = $init_path . $article->header_img;
+        Storage::disk('s3')->delete($head_path);
 
-      $head_path = 'public/Images/Articles/' . $article->header_img;
-      Storage::delete($head_path);
+        if (isset($article->image_1)) {
+            $img1_path = $init_path . $article->image_1;
+            Storage::delete($img1_path);
+        };
 
-      if (isset($article->image_1)) {
-        $img1_path = 'public/Images/Articles/' . $article->image_1;
-        Storage::delete($img1_path);
-      };
+        if (isset($article->image_2)) {
+            $img2_path = $init_path . $article->image_2;
+            Storage::delete($img2_path);
+        };
 
-      if (isset($article->image_2)) {
-        $img2_path = 'public/Images/Articles/' . $article->image_2;
-        Storage::delete($img2_path);
-      };
+        if (isset($article->image_3)) {
+            $img3_path = $init_path . $article->image_3;
+            Storage::delete($img3_path);
+        };
 
-      if (isset($article->image_3)) {
-        $img3_path = 'public/Images/Articles/' . $article->image_3;
-        Storage::delete($img3_path);
-      };
-
-      $article->delete();
-      return redirect('/articles');
+        $article->delete();
+        return redirect('/articles');
     }
 
 }
