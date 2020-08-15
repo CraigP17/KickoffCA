@@ -60,7 +60,7 @@ Route::get('/', function() {
 
     $main_art = Article::where('main_article', true)->get()->last();
 
-    $top_headline = Article::where('top_headline', true)->take(4)->get();
+    $top_headline = Article::where('top_headline', true)->orderBy('date', 'desc')->take(4)->get();
 
     $articles = Article::where([
         ['sport', '!=', 'Pop Culture'],
