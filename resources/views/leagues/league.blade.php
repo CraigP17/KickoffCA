@@ -23,7 +23,7 @@
         <div class="col-md-7">
           <div class="thumbnail mb-3">
             <div class="card" id="card-main-hover">
-              <img class="card-img-top" src="/storage/Images/Articles/{{$league_articles[0]->header_img}}" alt="Top Headline Image">
+              <img class="card-img-top" src="{{$league_articles[0]->header_url}}" alt="{{$league_articles[0]->header_source}}">
               <div class="card-body pt-1">
                 <h3 class="card-title m-0 text-center" id="textBlack">{{$league_articles[0]->title}} </h2>
                 <hr class="mt-1 mb-2">
@@ -45,7 +45,7 @@
           <div class="row">
             <div class="containment">
               <a href="/articles/{{$league_articles[1]->slug}}" class="empty">
-                <img src="/storage/Images/Articles/{{$league_articles[1]->header_img}}" class="contained" alt="">
+                <img src="{{$league_articles[1]->header_url}}" class="contained" alt="{{$league_articles[1]->header_source}}">
                 <div class="bottom-left"> <h4>{{$league_articles[1]->title}}</h4> </div>
                 <div class="top-right"> <p style="margin:0;">{{date('F j, Y', strtotime($league_articles[1]->date))}}</p> </div>
               </a>
@@ -54,7 +54,7 @@
           <div class="row">
             <div class="containment">
               <a href="/articles/{{$league_articles[2]->slug}}" class="empty">
-                <img src="/storage/Images/Articles/{{$league_articles[2]->header_img}}" class="contained" alt="">
+                <img src="{{$league_articles[2]->header_url}}" class="contained" alt="{{$league_articles[2]->header_source}}">
                 <div class="bottom-left"> <h4>{{$league_articles[2]->title}}</h4> </div>
                 <div class="top-right"> <p style="margin:0;">{{date('F j, Y', strtotime($league_articles[2]->date))}}</p> </div>
               </a>
@@ -70,8 +70,8 @@
             <div class="card" id="card-hover">
 
               <img class="card-img-top" id="card-image"
-              src="/storage/Images/Articles/{{$league_articles[$i]->header_img}}"
-              alt="{{$league_articles[$i]->header_img}}">
+                  src="{{$league_articles[$i]->header_url}}"
+                  alt="{{$league_articles[$i]->header_source}}">
 
               <div class="card-body mb-0 p-0 pl-2 pr-2 text-center">
                 <h4 class="m-0 pt-1" id="textBlack">{{$league_articles[$i]->title}}</h4>

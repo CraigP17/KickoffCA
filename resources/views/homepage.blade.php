@@ -18,7 +18,7 @@
 
         <div class="thumbnail mb-2" id="padtopbot">
           <div class="card" id="card-main-hover">
-            <img class="card-img-top" src="/storage/Images/Articles/{{$main_art->header_img}}" alt="Top Headline Image">
+            <img class="card-img-top" src="{{$main_art->header_url}}" alt="{{$main_art->header_source}}">
             <div class="card-body pt-1">
               <h2 class="card-title m-0" id="textBlack">{{$main_art->title}} </h2>
               <hr class="mt-1 mb-2">
@@ -50,7 +50,7 @@
                 id="card-main-hover">
                 <article class="media">
                   <figure class="media-left mb-0 mr-0 my-auto">
-                    <img src="/storage/Images/Articles/{{$top_art->header_img}}" id="topHeaderPic">
+                    <img src="{{$top_art->header_url}}" alt="{{$top_art->header_source}}" id="topHeaderPic">
                   </figure>
                   <div class="media-content">
                     <div class="content">
@@ -77,7 +77,7 @@
               <div class="col-md-5 col-12 p-2">
                 <div class="h-100" id="stat-center">
                   <h3 id="darker-today"> THIS DAY IN HISTORY </h3>
-                  <h4 class="pt-2" id="textRed"> {{date('F j, Y', strtotime($statotd[0]->date))}} </h4>
+                  <h4 class="pt-2" id="textRed"> {{date('F j', strtotime($statotd[0]->date))}} </h4>
                 </div>
               </div>
               <div class="col-md-7 col-12 p-2 pr-3">
@@ -114,7 +114,7 @@
             <p class="p-1 m-0" id="backdarkergrey">{{$pod->name}}</p>
             <p class="p-1 m-0" id="textRed">
               <b>{{date('F j', strtotime($pod->date))}}
-              <span id="floatRight">Time</span></b>
+              <span id="floatRight">{{$pod->time}}</span></b>
             </p>
             <a href="/podcasts/{{$pod->slug}}" class="stretched-link"></a>
           </div>
@@ -136,9 +136,10 @@
       @foreach ($articles as $article)
         <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
           <div class="card" id="card-hover">
-            <img class="card-img-top" id="card-image"
-            src="/storage/Images/Articles/{{$article->header_img}}"
-            alt="{{$article->header_img}}">
+            <img class="card-img-top"
+                id="card-image"
+                src="{{$article->header_url}}"
+                alt="{{$article->header_img}}">
             <div class="card-title mb-0 p-0 pl-2 pr-2 text-center">
               <h4 class="m-0" id="textBlack">{{$article->title}}</h4>
             </div>

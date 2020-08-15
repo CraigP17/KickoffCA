@@ -39,9 +39,9 @@
         <div class="col-md-7">
           <div class="thumbnail mb-3">
             <div class="card" id="card-main-hover">
-              <img class="card-img-top" src="/storage/Images/Articles/{{$rarticles[0]->header_img}}" alt="Top Headline Image">
+              <img class="card-img-top" src="{{$rarticles[0]->header_url}}" alt="{{$rarticles[0]->header_source}}">
               <div class="card-body pt-1">
-                <h3 class="card-title m-0 text-center" id="textBlack">{{$rarticles[0]->title}} </h2>
+                <h3 class="card-title m-0 text-left" id="textBlack">{{$rarticles[0]->title}} </h2>
                 <hr class="mt-1 mb-2">
                 <div id="leftCentreRight">
                   <h6>{{$rarticles[0]->author}}</h4>
@@ -61,7 +61,7 @@
           <div class="row">
             <div class="containment">
               <a href="/articles/{{$rarticles[1]->slug}}" class="empty">
-                <img src="/storage/Images/Articles/{{$rarticles[1]->header_img}}" class="contained" alt="">
+                <img src="{{$rarticles[1]->header_url}}" class="contained" alt="{{$rarticles[1]->header_source}}">
                 <div class="bottom-left"> <h4>{{$rarticles[1]->title}}</h4> </div>
                 <div class="top-right"> <p style="margin:0;">{{date('F j, Y', strtotime($rarticles[1]->date))}}</p> </div>
               </a>
@@ -70,7 +70,7 @@
           <div class="row">
             <div class="containment">
               <a href="/articles/{{$rarticles[2]->slug}}" class="empty">
-                <img src="/storage/Images/Articles/{{$rarticles[2]->header_img}}" class="contained" alt="">
+                <img src="{{$rarticles[2]->header_url}}" class="contained" alt="{{$rarticles[2]->header_source}}">
                 <div class="bottom-left"> <h4>{{$rarticles[2]->title}}</h4> </div>
                 <div class="top-right"> <p style="margin:0;">{{date('F j, Y', strtotime($rarticles[2]->date))}}</p> </div>
               </a>
@@ -89,8 +89,8 @@
               <div class="col-sm-6 col-12 mb-3">
                 <div class="card" id="card-hover">
                   <img class="card-img-top" id="card-image"
-                  src="/storage/Images/Articles/{{$rarticles[$i]->header_img}}"
-                  alt="{{$rarticles[$i]->header_img}}">
+                  src="{{$rarticles[$i]->header_url}}"
+                  alt="{{$rarticles[$i]->header_source}}">
                   <div class="card-body mb-0 p-0 pl-2 pr-2 text-center">
                     <h4 class="m-0" id="textBlack">{{$rarticles[$i]->title}}</h4>
                   </div>

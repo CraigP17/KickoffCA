@@ -13,7 +13,7 @@
               <li>
                 <div class="card">
                   <div class="card-img">
-                    <img src="/storage/Images/Articles/{{$pop->header_img}}" alt="">
+                    <img src="{{$pop->header_url}}" alt="">
                   </div>
                   <div class="cardtitle">
                     <a href="/pop-culture/{{$pop->slug}}"><h3 style="margin:10px;color:black;font-size:1.25rem;">{{$pop->title}}</h3></a>
@@ -39,7 +39,7 @@
           @foreach ($weeklymusic as $music)
             <div class="containment" >
               <a href="/pop-culture/{{$music->slug}}" class="empty">
-                <img src="/storage/Images/Articles/{{$music->header_img}}" class="contained" alt="">
+                <img src="{{$music->header_url}}" class="contained" alt="">
                 <div class="bottom-left"> <h4>{{$music->title}}</h4> </div>
                 <div class="top-right"> <p style="margin:0;">{{date('F j, Y', strtotime($music->date))}}</p> </div>
               </a>

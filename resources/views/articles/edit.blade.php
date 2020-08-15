@@ -155,7 +155,7 @@
 
         <div class="control">
           <input type="file" name="header_img" class="form-control">Current: "{{$article->header_img}}"
-          <img src="/storage/Images/Articles/{{$article->header_img}}" alt="" class="edit-img">
+          <img src="{{$article->header_url}}" alt="" class="edit-img">
         </div>
 
         <div class="field-label is-normal">
@@ -196,7 +196,7 @@
         <div class="field-body">
           <div class="control">
             <input type="file" name="image_1" class="form-control">Current: "{{$article->image_1}}"
-            <img src="/storage/Images/Articles/{{$article->image_1}}" alt="" class="edit-img">
+            <img src="{{$article->image_1_url}}" alt="" class="edit-img">
           </div>
         </div>
       </div>
@@ -241,7 +241,7 @@
         <div class="field-body">
           <div class="control">
             <input type="file" name="image_2" class="form-control">Current: "{{$article->image_2}}"
-            <img src="/storage/Images/Articles/{{$article->image_2}}" alt="" class="edit-img">
+            <img src="{{$article->image_2_url}}" alt="" class="edit-img">
           </div>
         </div>
       </div>
@@ -286,7 +286,7 @@
         <div class="field-body">
           <div class="control">
             <input type="file" name="image_3" class="form-control">Current: "{{$article->image_3}}"
-            <img src="/storage/Images/Articles/{{$article->image_3}}" alt="" class="edit-img">
+            <img src="{{$article->image_3_url}}" alt="" class="edit-img">
           </div>
         </div>
       </div>

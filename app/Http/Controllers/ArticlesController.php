@@ -125,7 +125,7 @@ class ArticlesController extends Controller
 
         Article::create($attributes);
 
-        return redirect('/articles' . $attributes['slug']);
+        return redirect('/articles/' . $attributes['slug']);
     }
 
     /**
@@ -205,9 +205,9 @@ class ArticlesController extends Controller
         $attributes['top_headline'] = "0";
       }
       
-      $init_path - 'images/articles';
+      $init_path = 'images/articles';
       if ($request->hasFile('header_img')) {
-        $old_path = $init_path . $article->header_img;
+        $old_path = $init_path . '/' . $article->header_img;
         Storage::disk('s3')->delete($old_path);
         $new_pic_name = rand() . '.' . $request->file('header_img')->getClientOriginalName();
         $attributes['header_img'] = $new_pic_name;
@@ -217,7 +217,7 @@ class ArticlesController extends Controller
       }
 
       if ($request->hasFile('image_1')) {        
-        $old_path = $init_path . $article->image_1;
+        $old_path = $init_path . '/' . $article->image_1;
         Storage::disk('s3')->delete($old_path);
         $new_pic_name = rand() . '.' . $request->file('image_1')->getClientOriginalName();
         $attributes['image_1'] = $new_pic_name;
@@ -227,7 +227,7 @@ class ArticlesController extends Controller
       }
 
       if ($request->hasFile('image_2')) {
-          $old_path = $init_path . $article->image_2;
+          $old_path = $init_path . '/' . $article->image_2;
           Storage::disk('s3')->delete($old_path);
           $new_pic_name = rand() . '.' . $request->file('image_2')->getClientOriginalName();
           $attributes['image_2'] = $new_pic_name;
@@ -237,7 +237,7 @@ class ArticlesController extends Controller
       }
 
       if ($request->hasFile('image_3')) {
-          $old_path = $init_path . $article->image_3;
+          $old_path = $init_path . '/' . $article->image_3;
           Storage::disk('s3')->delete($old_path);
           $new_pic_name = rand() . '.' . $request->file('image_3')->getClientOriginalName();
           $attributes['image_3'] = $new_pic_name;
@@ -261,7 +261,7 @@ class ArticlesController extends Controller
      */
     public function destroy(Article $article)
     {
-        $init_path = 'images/articles';
+        $init_path = 'images/articles/';
         
         $head_path = $init_path . $article->header_img;
         Storage::disk('s3')->delete($head_path);

@@ -16,12 +16,14 @@
 
           <h2 class="text-center" id="p-lin-height">{{ $article->title }}</h1>
 
-          <img src="/storage/Images/Articles/{{$article->header_img}}"
+          <img src="{{$article->header_url}}"
                alt="{{$article->header_source}}"
                class="w-100 mb-2">
 
           <div class="d-flex">
-            <img src="/storage/Images/Authors/{{$author->profile_pic}}" alt="{{$author->name}}" class="art-author-img">
+            <img src="{{$author->dp_url}}" 
+                 alt="{{$author->name}}" 
+                 class="art-author-img">
 
             <div class="row w-100">
               <div class="col-sm-6">
@@ -45,8 +47,9 @@
           @isset($article->image_1)
             <div class="text-center">
               <figure class="figure-article">
-                <img src="/storage/Images/Articles/{{$article->image_1}}"
-                     alt="{{$article->img1_caption}}" class="img-article rounded">
+                <img src="{{$article->image_1_url}}"
+                     alt="{{$article->img1_caption}}"
+                     class="img-article rounded">
                 <figcaption class="figcaption-article">
                   <p class="w-100 p-2 mb-0 text-left">{{$article->img1_caption}}</p>
                 </figcaption>
@@ -58,8 +61,9 @@
           @isset($article->image_2)
             <div class="text-center">
               <figure class="figure-article pl-auto">
-                <img src="/storage/Images/Articles/{{$article->image_2}}"
-                     alt="{{$article->img2_caption}}" class="img-article">
+                <img src="{{$article->image_2_url}}"
+                     alt="{{$article->img2_caption}}"
+                     class="img-article">
                 <figcaption class="figcaption-article">
                   <p class="w-100 p-2 mb-0 text-left">{{$article->img2_caption}}</p>
                 </figcaption>
@@ -71,8 +75,9 @@
           @isset($article->image_3)
             <div class="text-center">
               <figure class="figure-article">
-                <img src="/storage/Images/Articles/{{$article->image_3}}"
-                     alt="{{$article->img3_caption}}" class="img-article">
+                <img src="{{$article->image_3_url}}"
+                     alt="{{$article->img3_caption}}"
+                     class="img-article">
                 <figcaption class="figcaption-article">
                   <p class="w-100 p-2 mb-0 text-left">{{$article->img3_caption}}</p>
                 </figcaption>
@@ -120,7 +125,9 @@
                     </div>
                   </div>
                   <figure class="media-right my-auto mb-0">
-                    <img src="/storage/Images/Articles/{{$sport_article->header_img}}" id="article-mini-img">
+                    <img src="{{$sport_article->header_url}}"
+                         alt="{{$sport_article->header_source}}"
+                         id="article-mini-img">
                   </figure>
                 </article>
               </a>
@@ -138,8 +145,8 @@
               <div class="col-md-6 col-12 mb-3">
                 <div class="card" id="card-hover">
                   <img class="card-img-top" id="card-image" style="height: 100px"
-                  src="/storage/Images/Articles/{{$other->header_img}}"
-                  alt="{{$other->header_img}}">
+                        src="{{$other->header_url}}"
+                        alt="{{$other->header_source}}">
                   <div class="card-title mb-0 p-0 pl-2 pr-2 text-center">
                     <h4 class="m-0" id="textBlack">{{$other->title}}</h4>
                   </div>
@@ -198,7 +205,9 @@
                         </div>
                       </div>
                       <figure class="media-right my-auto mb-0">
-                        <img src="/storage/Images/Articles/{{$sport_article->header_img}}" id="article-mini-img">
+                        <img src="{{$sport_article->header_url}}"
+                            alt="{{$sport_article->header_source}}"
+                            id="article-mini-img">
                       </figure>
                     </article>
                   </a>

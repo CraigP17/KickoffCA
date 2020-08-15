@@ -37,12 +37,12 @@ class CreateArticlesTable extends Migration
 
           $table->text('content_2')->nullable();
           $table->string('image_2')->nullable();
-          $table->string('image_1_url')->nullable();
+          $table->string('image_2_url')->nullable();
           $table->string('img2_caption')->nullable();
 
           $table->text('content_3')->nullable();
           $table->string('image_3')->nullable();
-          $table->string('image_1_url')->nullable();
+          $table->string('image_3_url')->nullable();
           $table->string('img3_caption')->nullable();
 
           $table->text('content_4')->nullable();
