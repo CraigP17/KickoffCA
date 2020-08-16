@@ -26,6 +26,7 @@ class Podcast extends Model
         'name' => $pods['name'],
         'group_name' => $this['name'],
         'description' => $pods['description'],
+        'time' => $pods['time'],
         'date' => $pods['date'],
         'slug' => $this['slug']
       ]);

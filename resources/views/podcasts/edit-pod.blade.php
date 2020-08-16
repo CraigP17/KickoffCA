@@ -52,6 +52,26 @@
             </div>
           </div>
         </div>
+        
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="time">Time Length</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded" style="margin-bottom:3px;">
+                <input
+                  class="input {{ $errors->has('time') ? 'is-danger' : '' }}"
+                  type="text"
+                  name="time"
+                  placeholder="1:23"
+                  value="{{ $pod->time }}"
+                  required>
+              </p>
+              <p class="help" style="margin:0;">Length of Episode 19:06, 64:12</p>
+            </div>
+          </div>
+        </div>
 
         <div class="field is-horizontal">
           <div class="field-label is-normal">

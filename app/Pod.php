@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pod extends Model
 {
-  protected $fillable = ['name', 'group_name', 'description', 'date', 'slug'];
+  protected $fillable = ['name', 'group_name', 'description', 'time', 'date', 'slug'];
 
   // public function getRouteKeyName()
   //   {

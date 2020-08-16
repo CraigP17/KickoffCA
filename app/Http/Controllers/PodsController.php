@@ -37,9 +37,10 @@ class PodsController extends Controller
     public function store(Podcast $podcast)
     {
       $attributes = request()->validate([
-      'name'=>'required|min:3|max:255',
-      'description'=>'required|min:3',
-      'date'=>'required|date_format:Y-m-d']);
+      'name' => 'required|min:3|max:255',
+      'description' => 'required|min:3',
+      'time' => 'required|min:1',
+      'date' => 'required|date_format:Y-m-d']);
       // $attributes['group_name'] = $podcast['slug'];
       // Pod::create($attributes);
       $podcast->addPod($attributes);
@@ -80,7 +81,7 @@ class PodsController extends Controller
     public function update(Request $request, $id)
     {
       $pod = Pod::findOrFail($id);
-      $pod->update(request(['name','description','date']));
+      $pod->update(request(['name','description','time','date']));
 
       return redirect('/podcasts');
     }
