@@ -480,59 +480,96 @@ img.leagueLogo {
 
 /* ~~~~~~~~~~~~~ POP ARTICLES ~~~~~~~~~~~~~~~ */
 
-.pop-articles {
-  padding: 2rem;
+#pop-background {
+	background-color: #86C2DD;
 }
 
-.pop-articles > ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 1rem;
-  /*
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 2000px; */
+#pop-backLogo {
+	background-color: #86C2DD;
+	max-height: 75px;
 }
 
-.pop-artic > ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 1rem;
-  /*
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 2000px; */
+img.pop-logoimg {
+  display: block;
+  max-height: 75px;
+	width: auto;
+	margin: 0 auto 0 auto;
+	background-color: #004E64;
 }
 
-.pop-articles > ul > li {
-  /*border: 1px solid #E5E5E5;
-  height: auto;
-
-  width: 30vw; */
-  border-radius: .5rem;
+#pop-backgroundImg {
+	background-image: url('https://kickoff-test.s3.ca-central-1.amazonaws.com/images/backgrounds/KOPbg_lines_v1.png');
+	background-repeat: repeat;
 }
 
-a.pop {
-  background-color: #33669;
-  text-decoration: none;
-  color: blue;
-  border-radius: .25rem;
-  text-align: center;
-  display: inline-block;
-  transition: all .3s;
-  padding: .5rem 1rem;
-  margin: .5rem;
+#pop-leftCentreRight {
+	display:flex;
+	justify-content: space-between;
+	color: #A80C00;
 }
 
-a.pop:hover {
-  opacity: .7;
+#pop-lead-story {
+	font-weight: bold;
+	font-style: italic;
+	font-family: 'Raleway', sans-serif !important;
+	font-size: 2.5em;
+	background-color: #004E64;
+	box-shadow: 5px 15px 16px rgba(0,0,0,0.4);
+	text-shadow: 1px 1px 1px #505050;
+  	color: white;
+	padding: 0 10px;
+	position: absolute;
+	left: 0px;
+	top: -10px;
+	display: inline-block;
+	z-index: 250;
 }
+
+#pop-lead-story::after {
+	content: "";
+	display: inline-block;
+	border-bottom: 1.21em solid transparent;
+	border-left: 1.21em solid #004E64;
+	position: absolute;
+	top: 0px;
+	right: -1.20em;
+}
+
+#pop-homeSectionHeader {
+	font-weight: bold;
+	font-style: italic;
+	font-family: 'Raleway', sans-serif !important;
+	font-size: 2.1em;
+	text-shadow: 1px 1px 1px #505050;
+	line-height: 0.95;
+	text-align: center;
+	background-color: #004E64;
+  color: white;
+}
+
+#readMorePink {
+	background-color: #EF87DB;
+	border-radius: 0 0 18px 18px;
+}
+
+.popart-header {
+	font-weight: bold;
+	font-style: italic;
+	font-family: 'Raleway', sans-serif !important;
+	font-size: 1.5em;
+	text-shadow: 1px 1px 1px #505050;
+	line-height: 0.95;
+	text-align: center;
+	background-color: #86C2DD;
+  	color: white;
+	padding: 10px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+}
+
 
 /* ~~~~~~~~~~~~ Edit Image ~~~~~~~~~~~~~~ */
 img.edit-img {
-  max-height: 100px;
+  	max-height: 100px;
 }
 
 /* ~~~~~~~~~~~~ HOME PAGE Styles ~~~~~~~~~~~~~ */
@@ -977,7 +1014,7 @@ img.profile-pic {
 	line-height: 0.95;
 	text-align: center;
 	background-color: #A80C00;
-  color: white;
+  	color: white;
 	padding: 10px;
 }
 
