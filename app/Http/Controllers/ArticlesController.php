@@ -28,11 +28,13 @@ class ArticlesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function popculture()
-    {
-        $pop_arts = Article::where('sport', 'Pop Culture')->orderBy('date', 'desc')->get();
-        $weeklymusic = Article::where('sport', 'Pop Culture')->where('league', 'Music Review')->orderBy('date', 'DESC')->get();
+    {        
+        $main_art = Article::where([['sport', '=', 'Pop Culture'], ['top_headline', '=', 0], ['main_article', '=', 1]])->get()->last();
+        $top_headline = Article::where([['sport', '=', 'Pop Culture'], ['top_headline', '=', 1], ['main_article', '=', 0]])->orderBy('date', 'desc')->take(4)->get();
+        $articles = Article::where([['sport', '=', 'Pop Culture'], ['top_headline', '=', 0], ['main_article', '=', 0]])->orderBy('date', 'desc')->take(20)->get();
+        $weeklymusic = Article::where('sport', 'Pop Culture')->where('league', 'Music Review')->get()->last();
 
-        return view('articles.all-pop', compact('pop_arts', 'weeklymusic'));
+        return view('articles.all-pop', compact('main_art', 'top_headline', 'articles', 'weeklymusic'));
     }
 
     /**
@@ -48,8 +50,17 @@ class ArticlesController extends Controller
         $others = Article::where([
           ['author', '=', $article->author],
           ['title', '!=', $article->title],
-        ])->orderBy('date', 'desc')->take(3)->get();
-        return view('articles.showpop', compact('article', 'author', 'others'));
+        ])->orderBy('date', 'desc')->take(4)->get();
+        $top_headlines = Article::where([
+          ['title', '!=', $article->title],
+          ['top_headline', true]
+        ])->orderBy('date', 'desc')->take(5)->get();
+        $sports = Article::where([
+          ['title', '!=', $article->title],
+          ['sport', '=', $article->sport]
+        ])->orderBy('date', 'desc')->take(4)->get();
+        
+        return view('articles.showpop', compact('article', 'author', 'others', 'top_headlines', 'sports'));
     }
 
     /**

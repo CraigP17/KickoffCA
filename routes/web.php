@@ -35,8 +35,8 @@ Route::get('/admin', 'HomeController@admin')->middleware('auth')->middleware('is
 
 /* ------------------ Routes for HOME PAGE ------------------ */
 Route::get('/homekick', function() {
-    $main_art = Article::where('main_article', true)->get()->last();
-    $top_headline = Article::where('top_headline', true)->get();
+    $main_art = Article::where('main_article', true)->where('sport', '!=', 'Pop Culture')->get()->last();
+    $top_headline = Article::where('top_headline', true)->where('sport', '!=', 'Pop Culture')->get();
     $articles = Article::where([
       ['sport', '!=', 'Pop Culture'],
       ['top_headline', '=', 0],
@@ -58,9 +58,9 @@ Route::get('/homekick', function() {
 Route::get('/', function() {
     date_default_timezone_set('America/Toronto');
 
-    $main_art = Article::where('main_article', true)->get()->last();
+    $main_art = Article::where('main_article', true)->where('sport', '!=', 'Pop Culture')->get()->last();
 
-    $top_headline = Article::where('top_headline', true)->orderBy('date', 'desc')->take(4)->get();
+    $top_headline = Article::where('top_headline', true)->where('sport', '!=', 'Pop Culture')->orderBy('date', 'desc')->take(4)->get();
 
     $articles = Article::where([
         ['sport', '!=', 'Pop Culture'],
