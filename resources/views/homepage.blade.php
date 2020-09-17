@@ -18,7 +18,7 @@
 
                 <div class="thumbnail mb-2" id="padtopbot">
                     <div class="card" id="card-main-hover">
-                        <img class="card-img-top img-thumbnail" src="{{$main_art->header_url}}" alt="{{$main_art->header_source}}">
+                        <img class="card-img-top" src="{{$main_art->header_url}}" alt="{{$main_art->header_source}}">
                         <div class="card-body pt-1">
                             <h2 class="card-title m-0" id="textBlack">{{$main_art->title}} </h2>
                             <hr class="mt-1 mb-2">
@@ -36,7 +36,7 @@
             </div>
 
             {{-- Top Headlines --}}
-            <div class="col-lg-5 col-md-7 mx-auto">
+            <div class="col-lg-5 col-md-8 mx-auto">
 
             <div class="mt-4">
                 <h2 class="topHeader p-1 px-3" id="homeSectionHeader">TOP HEADLINES</h2>
@@ -128,7 +128,7 @@
 
 
         {{-- More Stories Section --}}
-        <div class="row mb-2">
+        <div class="row mb-3">
 
             <div class="col-12 pl-0 mb-4" id="padtopbot">
                 <h2 class="topHeader p-2" id="homeSectionHeader">
@@ -166,20 +166,43 @@
         
         
         {{-- Latest Pop Culture Sections --}}
-        <div class="row mb-4 py-2 no-gutters" id="pop-bg-blue">
+        <div class="row mb-4 py-2" id="pop-bg-blue">
             
             @foreach ($pop_articles as $pop)
                 <div class="col-lg-3 col-md-4 col-12 my-1 order-lg-1 order-2">
-                    <div class="containment h-100 my-1">
-                        <a class="empty" href="/pop-culture/{{$pop->slug}}">
-                        <img src="{{$pop->header_url}}" class="contained" style="height:175px" alt="{{$pop->header_source}}">
-                        <div class="bottom-left"> <h6>{{$pop->title}}</h6> </div>
-                        <div class="top-right"> <p style="margin:0;">{{date('F j, Y', strtotime($pop->date))}}</p> </div>
-                        </a>
+                    
+                    <div class="card mb-0 pb-0 h-100" id="podcast-hover">
+                      <div class="row h-100 no-gutters">
+                        <div class="col-4 col-md-5">
+                            <img src={{$pop->header_url}} 
+                                class="card-img h-100 py-auto" 
+                                alt="..." 
+                                style="object-fit:cover;border-radius: 3%;max-height:175px;">
+                        </div>
+                        <div class="col-8 col-md-7">
+                          <div class="px-2 pt-0">
+                              <div class="content">
+                                  <p class="m-0 mr-2 mt-1 d-block d-md-none" id="textRed">
+                                      {{$pop->league}}
+                                      <span id="floatRight">
+                                        {{date('F j', strtotime($pop->date))}}
+                                      </span>
+                                  </p>
+                                  <h6 class="mr-2 mb-1 mb-md-0 mt-md-1 pb-0">
+                                      {{$pop->title}}
+                                  </h6>
+                                  <small class="d-none d-md-block mb-1 p-0" id="textRed">{{date('F j', strtotime($pop->date))}} </small>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <a href="/pop-culture/{{$pop->slug}}" class="stretched-link"></a>
                     </div>
+                    
                 </div>
             @endforeach
-            
+                
+                
             <div class="col-lg-3 col-sm-12 col-12 order-1 order-lg-2" id="podcast-title-mid">
                 <div class="h-100" id="stat-center">
                     <h2 class="p-2 pt-3 mb-1 pb-3 m-2" id="pop-homeSectionHeader">LATEST IN POP CULTURE</h2>
@@ -201,7 +224,7 @@
                         <a href="/articles/{{$article_1->slug}}"
                         class="list-group-item list-group-item-action p-0"
                         id="card-main-hover">
-                            @if ($loop->index != 2)
+                            @if ($loop->index != 2 && $loop->index != 5)
                                 <article class="media">
                                     <figure class="media-left mb-0 mr-0 my-auto">
                                         <img src="{{$article_1->header_url}}" 
@@ -226,23 +249,23 @@
                                 </article>
                             @else
                                 <article class="media mb-0">
-                                    <div class="my-2">
+                                    <div class="mt-md-2 mb-2">
                                         <div class="row no-gutters">
                                             <div class="col-md-5 mb-0 pb-0 d-flex align-items-center justify-content-center">
                                                 <img src="{{$article_1->header_url}}" 
                                                     alt="{{$article_1->header_source}}" 
-                                                    class="my-auto"
+                                                    class="my-auto px-2 pt-2 pt-md-0"
                                                     id="larger-topHeaderPic"
                                                     style="object-fit:cover">
                                             </div>
                                             <div class="col-md-7">
-                                                <div class="content ml-2">
-                                                    <p class="m-0 mr-2 mt-1" id="textRed">{{$article_1->league}}
+                                                <div class="content ml-2 ml-md-0">
+                                                    <p class="m-0 mr-2" id="textRed">{{$article_1->league}}
                                                         <span id="floatRight">
                                                           {{date('F j', strtotime($article_1->date))}}
                                                         </span>
                                                     </p>
-                                                    <h4 class="mr-2 mb-0 pb-0">
+                                                    <h4 class="mr-2 mb-0 pb-0 text-center text-sm-left">
                                                         {{$article_1->title}}
                                                     </h4>
                                                     <p class="mr-2 mb-0 pb-2 d-none d-md-block">

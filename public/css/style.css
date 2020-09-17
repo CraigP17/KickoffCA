@@ -541,6 +541,7 @@ img.pop-logoimg {
 	font-family: 'Raleway', sans-serif !important;
 	font-size: 2.1em;
 	text-shadow: 1px 1px 1px #505050;
+	box-shadow: 0px 3px 6px #555555;
 	line-height: 0.95;
 	text-align: center;
 	background-color: #004E64;
@@ -588,7 +589,7 @@ img.edit-img {
 	background-color: #A80C00;
 	box-shadow: 5px 15px 16px rgba(0,0,0,0.4);
 	text-shadow: 1px 1px 1px #505050;
-  color: white;
+  	color: white;
 	padding: 0 10px;
 	position: absolute;
 	left: 0px;
@@ -599,12 +600,12 @@ img.edit-img {
 
 #lead-story::after {
 	content: "";
-  display: inline-block;
-  border-bottom: 1.21em solid transparent;
-  border-left: 1.21em solid #A80C00;
-  position: absolute;
-  top: 0px;
-  right: -1.20em;
+	display: inline-block;
+	border-bottom: 1.21em solid transparent;
+	border-left: 1.21em solid #A80C00;
+	position: absolute;
+	top: 0px;
+	right: -1.20em;
 }
 
 .topHeader {
@@ -620,6 +621,7 @@ img.edit-img {
 	font-family: 'Raleway', sans-serif !important;
 	font-size: 2.1em;
 	text-shadow: 1px 1px 1px #505050;
+	box-shadow: 0px 3px 6px #555555;
 	line-height: 0.95;
 	text-align: center;
 	background-color: #A80C00;
@@ -640,6 +642,14 @@ img.edit-img {
 		height: 8em;
 		width: 8em;
 	}
+}
+
+#larger-topHeaderPic {
+	min-height: 6em;
+	max-height: 275px;
+	height: inherit;
+	margin-bottom: 0;
+	object-fit: cover;
 }
 
 #stat-center {
@@ -687,6 +697,7 @@ img.edit-img {
 #card-image {
 	border-radius: 0;
 	height: 30vh;
+	max-height: 275px;
 	min-height: 200px;
 	object-fit: cover;
 }
@@ -706,6 +717,7 @@ img.edit-img {
 #readMoreRed {
 	background-color: #A80C00;
 	border-radius: 0 0 18px 18px;
+	padding: 0.5rem 1rem
 }
 
 #readMore {
@@ -719,11 +731,11 @@ img.edit-img {
 
 .containment {
 	position: relative;
-  text-align: center;
-  color: white;
+    text-align: center;
+    color: white;
 	margin:20px;
 	margin-top: 0;
-	text-shadow: 1px 1px 1px black;
+	text-shadow: 2px 2px 2px black;
 }
 
 #minicontain {
@@ -731,21 +743,20 @@ img.edit-img {
 }
 
 img.contained {
-	-webkit-filter: grayscale(10%) contrast(40%);
-     -moz-filter: grayscale(10%) contrast(40%);
-       -o-filter: grayscale(10%) contrast(40%);
-      -ms-filter: grayscale(10%) contrast(40%);
-          filter: grayscale(10%) contrast(30%);
+	-webkit-filter: grayscale(10%) contrast(35%);
+       -moz-filter: grayscale(10%) contrast(35%);
+         -o-filter: grayscale(10%) contrast(35%);
+        -ms-filter: grayscale(10%) contrast(35%);
+            filter: grayscale(10%) contrast(60%);
 	border-radius: 7px;
 }
 
 img.contained:hover {
-	-webkit-filter: grayscale(10%) contrast(40%);
-     -moz-filter: grayscale(10%) contrast(40%);
-       -o-filter: grayscale(10%) contrast(40%);
-      -ms-filter: grayscale(10%) contrast(40%);
-          filter: grayscale(0%) contrast(75%);
-	border-radius: 2%;
+	-webkit-filter: grayscale(0%) contrast(75%);
+       -moz-filter: grayscale(0%) contrast(75%);
+         -o-filter: grayscale(0%) contrast(75%);
+        -ms-filter: grayscale(0%) contrast(75%);
+            filter: grayscale(0%) contrast(75%);
 	transition: 0.1s;
 }
 
@@ -891,6 +902,10 @@ a.empty:hover {
 
 #bg-grey {
 	background-color: #5a777f;
+}
+
+#pop-bg-blue {
+	background-color: #86C2DD;
 }
 
 #piyellow {
