@@ -2,6 +2,7 @@
 use App\Article;
 use App\Pod;
 use App\Podcast;
+use App\Clip;
 use App\Stat;
 use App\Sport;
 use App\League;
@@ -66,13 +67,41 @@ Route::get('/', function() {
         ['sport', '!=', 'Pop Culture'],
         ['top_headline', '=', 0],
         ['main_article', '=', 0]
-    ])->orderBy('date', 'desc')->take(18)->get();
+    ])->orderBy('date', 'desc')->take(16)->get();
+    
+    // Split Articles into 3 Chunks of length 6, 5, 4
+    $chunks = array();
+    $split = array(6, 6, 4);
+    $i = 0;
+    while ($articles->count() && $i < 3) {
+        $chunks[] = $articles->splice(0, $split[$i]);
+        $i++;
+    }
+    // Assign each chunk to each articles_section
+    $articles_s0 = (isset($chunks[0]) && $chunks[0]->count()) ? $chunks[0] : array();
+    $articles_s1 = (isset($chunks[1]) && $chunks[1]->count()) ? $chunks[1] : array();
+    $articles_s2 = (isset($chunks[2]) && $chunks[2]->count()) ? $chunks[2] : array();
+    
+    // TESTING only
+    $articles_s1 = Article::where([
+        ['sport', '!=', 'Pop Culture'],
+        ['top_headline', '=', 0],
+        ['main_article', '=', 0]
+    ])->orderBy('date', 'desc')->take(6)->get();
+    $articles_s2 = Article::where([
+        ['sport', '!=', 'Pop Culture'],
+        ['top_headline', '=', 0],
+        ['main_article', '=', 0]
+    ])->orderBy('date', 'desc')->take(4)->get();
+    
+    $pop_articles = Article::where('sport', '=', 'Pop Culture')->orderBy('date', 'DESC')->take(3)->get();
 
     $podcasts = Pod::orderBy('date', 'desc')->take(3)->get();
+    $kclips = Clip::orderBy('date', 'desc')->take(3)->get();
 
     $statotd = Stat::where('date', date('Y-m-d'))->get();
 
-    return view('homepage', compact('main_art', 'top_headline', 'articles', 'podcasts', 'statotd'));
+    return view('homepage', compact('main_art', 'top_headline', 'articles_s0', 'articles_s1', 'articles_s2', 'podcasts', 'statotd', 'pop_articles', 'kclips'));
 });
 
 /*
