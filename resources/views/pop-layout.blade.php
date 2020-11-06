@@ -6,9 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="author" content="Craig Pinto">
 
-        <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel='stylesheet'>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fenix">
-        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,600;1,400;1,900&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -41,7 +40,7 @@
             </picture>
         </div>
 
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark py-0" style="background: linear-gradient(to bottom, #2B2B2B 0%, #141414 100%);">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark py-0" id="navbar">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
@@ -52,14 +51,14 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav mr-auto nav-justified w-100">
 
-                    <li class="nav-item"><a class="nav-link" href="/"> HOME </a></li>
+                    <li class="nav-item"><a class="nav-link nav-color" href="/"> Home </a></li>
 
-                    <li class="nav-item"><a class="nav-link" href="/podcasts"> PODCASTS </a></li>
+                    <li class="nav-item"><a class="nav-link nav-color" href="/podcasts"> Podcasts </a></li>
 
                     <li class="nav-item dropdown text-center">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        <a class="nav-link dropdown-toggle nav-color" href="#" id="navbarDropdownMenuLink"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            SPORTS
+                            Sports
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #202020">
                             <a class="dropdown-item text-center" id="navDropLink" href="/sports/baseball">Baseball</a>
@@ -70,16 +69,16 @@
                         </div>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" href="/pop-culture">POP CULTURE</a></li>
+                    <li class="nav-item"><a class="nav-link nav-color" href="/pop-culture">Pop Culture</a></li>
 
-                    <li class="nav-item"><a class="nav-link" href="/about">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link nav-color" href="/about">About</a></li>
                 </ul>
 
             </div>
 
             <div class="ml-auto">
                 <span class="navbar-text mr-1 d-none d-sm-inline-block py-0" href="#" id="textWhite">
-                    <h5 class="mb-0 py-0">&#64;TheKickOffCA</h5>
+                    <h6 class="mb-0 py-0" id="nav-title">&#64;TheKickOffCA</h6>
                 </span>
                 <a class="navbar-text m-0 py-0" target="_blank" href="https://twitter.com/thekickoffca">
                     <img src="https://kickoff-test.s3.ca-central-1.amazonaws.com/images/social-logos/twitter.png" alt="Twitter" id="twitter">
@@ -98,55 +97,55 @@
 
         <footer>
 
-        <div class="footers">
-            <div class="row">
-                <div class="col-md-6 text-md-left text-center">
-                    <img src="https://kickoff-test.s3.ca-central-1.amazonaws.com/images/layout/FooterLogo.png" alt="Logo" id="footerLogo">
-                </div>
-                <div class="col-md-6">
+            <footer>
+                <div class="footers">
                     <div class="row">
-                        <div class="col-4 text-md-right text-center">
-                            <p class="footer-col"><b>Community</b></p>
-                            <a href="/authors" class="footer-link">Authors</a> <br>
-                            <a href="/podcasts" class="footer-link">Podcasts</a>
+                        <div class="col-md-6 text-md-left text-center">
+                            <img src="https://kickoff-test.s3.ca-central-1.amazonaws.com/images/layout/FooterLogo.png" alt="Logo" id="footerLogo">
                         </div>
-                        <div class="col-4 text-md-right text-center">
-                            <a href="/sports"><p class="footer-col"><b>Sports</b></p></a>
-                            <a href="/sports/baseball" class="footer-link">Baseball</a> <br>
-                            <a href="/sports/basketball" class="footer-link">Basketball</a> <br>
-                            <a href="/sports/football" class="footer-link">Football</a> <br>
-                            <a href="/sports/hockey" class="footer-link">Hockey</a> <br>
+                        <div class="col-md-6">
+                            <div class="row pt-2">
+                                <div class="col-4 text-md-right text-center">
+                                    <p class="footer-col mb-2"><b>Community</b></p>
+                                    <a href="/authors" class="footer-link">Authors</a> <br>
+                                    <a href="/podcasts" class="footer-link">Podcasts</a>
+                                </div>
+                                <div class="col-4 text-md-right text-center">
+                                    <p class="footer-col mb-2"><b>Sports</b></p>
+                                    <a href="/sports/baseball" class="footer-link">Baseball</a> <br>
+                                    <a href="/sports/basketball" class="footer-link">Basketball</a> <br>
+                                    <a href="/sports/football" class="footer-link">Football</a> <br>
+                                    <a href="/sports/hockey" class="footer-link">Hockey</a> <br>
+                                </div>
+                                <div class="col-4 text-md-right text-center">
+                                    <p class="footer-col mb-2"><b>Company</b></p>
+                                    <a href="/about" class="footer-link">About Us</a> <br>
+                                    <a href="/about" class="footer-link">Contact</a> <br>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-4 text-md-right text-center">
-                            <p><b>Company</b></p>
-                            <a href="/about" class="footer-link">About Us</a> <br>
-                            <a href="/about" class="footer-link">Contact</a> <br>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="row">
+                        <div class="col-sm-6 order-sm-1 order-12" id="copyright">
+                            <div class="d-flex justify-content-md-start justify-content-center">
+                                &copy; 2020 The Kickoff.
+                            </div>
+                        </div>
+                        <div class="col-sm-6 order-sm-12 order-1">
+                            <div class="d-flex justify-content-md-end justify-content-center">
+                                <ul class="logos">
+                                    <li class="logo"> <a class="noline" href="mailto:thekickoffca@gmail.com"> <i class="fas fa-envelope fa-2x" id="fas-logo"></i> </a> </li>
+                                    <li class="logo"> <a class="noline" target="_blank" href="https://twitter.com/thekickoffca"> <i class="fab fa-twitter fa-2x" id="fas-logo"></i> </a> </li>
+                                    <li class="logo"> <a class="noline" target="_blank" href="https://www.instagram.com/thekickoffca/"> <i class="fab fa-instagram fa-2x" id="fas-logo"></i> </a> </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <hr>
-            
-            <div class="row">
-                <div class="col-sm-6 order-sm-1 order-12" id="copyright">
-                    <div class="d-flex justify-content-md-start justify-content-center">
-                        &copy; 2020 The Kickoff.
-                    </div>
-                </div>
-                <div class="col-sm-6 order-sm-12 order-1">
-                    <div class="d-flex justify-content-md-end justify-content-center">
-                        <ul class="logos">
-                            <li class="logo"> <a class="noline" href="mailto:thekickoffca@gmail.com"> <i class="fas fa-envelope fa-2x" id="fas-logo"></i> </a> </li>
-                            <li class="logo"> <a class="noline" target="_blank" href="https://twitter.com/thekickoffca"> <i class="fab fa-twitter fa-2x" id="fas-logo"></i> </a> </li>
-                            <li class="logo"> <a class="noline" target="_blank" href="https://www.instagram.com/thekickoffca/"> <i class="fab fa-instagram fa-2x" id="fas-logo"></i> </a> </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-          
-        </footer>
+            </footer>
         
     </body>
 

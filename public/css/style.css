@@ -7,27 +7,27 @@ body {
 }
 h1 {
 	font-size: 1.602em;
-	font-family: 'Fenix' !important;
+	font-family: 'Crimson Text' !important;
 }
 h2 {
 	font-size: 1.424em;
-	font-family: 'Fenix' !important;
+	font-family: 'Crimson Text' !important;
 }
 h3 {
 	font-size: 1.266em;
-	font-family: 'Fenix' !important;
+	font-family: 'Crimson Text' !important;
 }
 h4 {
 	font-size: 1.125em;
-	font-family: 'Fenix' !important;
+	font-family: 'Crimson Text' !important;
 }
 h5 {
 	font-size: 0.889em;
-	font-family: 'Fenix' !important;
+	font-family: 'Crimson Text' !important;
 }
 h6 {
 	font-size: 0.79em;
-	font-family: 'Fenix' !important;
+	font-family: 'Crimson Text' !important;
 }
 
 @media (min-width: 48em) {
@@ -88,6 +88,18 @@ img.logoimg {
 	min-height: 15vh;
 }
 
+#navbar {
+	font-family: 'Raleway', sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	background: linear-gradient(to bottom, #2B2B2B 0%, #141414 100%);
+}
+
+#nav-title {
+	font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+	font-weight: bold;
+}
+
 .nav {
   text-align: center;
 }
@@ -95,6 +107,14 @@ img.logoimg {
 .navbar-nav .nav-item {
   float: inherit;
   display: inline-block;
+}
+
+a.nav-color {
+	color:#CFCFCF !important;
+}
+
+a.nav-color:hover {
+	color: white !important;
 }
 
 #navDropLink {
@@ -132,8 +152,10 @@ img.logoimg {
 
 .footers {
 	padding: 2em 2em 1.5em 2em;
-  background-color: #353A3F;
-  color: lightgrey;
+  	background-color: #353A3F;
+  	color: lightgrey;
+	font-family: 'Raleway', sans-serif;
+	font-style: italic;;
 }
 
 ul.logos {
@@ -215,6 +237,7 @@ li.logo:hover {
 
 .footer-col {
 	color: #FEFEFE;
+	font-size: 105%;
 }
 
 .footer-link {
@@ -606,6 +629,11 @@ img.edit-img {
 	position: absolute;
 	top: 0px;
 	right: -1.20em;
+}
+
+img.card-img-top {
+	max-height: 400px;
+	object-fit: cover;
 }
 
 .topHeader {

@@ -14,22 +14,24 @@
 
             {{-- The Lead Story --}}
             <div class="col-lg-7">
-                <h2 id="lead-story">THE LEAD</h2>
+                <div id="lead">
+                    <h2 id="lead-story">THE LEAD</h2>
 
-                <div class="thumbnail mb-2" id="padtopbot">
-                    <div class="card" id="card-main-hover">
-                        <img class="card-img-top" src="{{$main_art->header_url}}" alt="{{$main_art->header_source}}">
-                        <div class="card-body pt-1">
-                            <h2 class="card-title m-0" id="textBlack">{{$main_art->title}} </h2>
-                            <hr class="mt-1 mb-2">
-                            <div id="leftCentreRight">
-                                <h5>{{$main_art->author}}</h5>
-                                <h5>{{$main_art->league}}</h5>
-                                <h5>{{date('F j, Y', strtotime($main_art->date))}}</h5>
+                    <div class="thumbnail mb-2" id="padtopbot">
+                        <div class="card" id="card-main-hover">
+                            <img class="card-img-top" src="{{$main_art->header_url}}" alt="{{$main_art->header_source}}">
+                            <div class="card-body pt-1">
+                                <h2 class="card-title m-0" id="textBlack">{{$main_art->title}} </h2>
+                                <hr class="mt-1 mb-2">
+                                <div id="leftCentreRight">
+                                    <h5>{{$main_art->author}}</h5>
+                                    <h5>{{$main_art->league}}</h5>
+                                    <h5>{{date('F j, Y', strtotime($main_art->date))}}</h5>
+                                </div>
+                                <hr class="m-0">
+                                <h5 class="card-text"> <small>{{$main_art->description}}</small> </h5>
+                                <a href="/articles/{{$main_art->slug}}" class="stretched-link"></a>
                             </div>
-                            <hr class="m-0">
-                            <h5 class="card-text"> <small>{{$main_art->description}}</small> </h5>
-                            <a href="/articles/{{$main_art->slug}}" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -42,57 +44,61 @@
                 <h2 class="topHeader p-1 px-3" id="homeSectionHeader">TOP HEADLINES</h2>
             </div>
 
-            <div class="pt-4">
-                <ul class="list-group list-group-flush dropdown">
-                    @foreach ($top_headline as $top_art)
-                        <a href="/articles/{{$top_art->slug}}"
-                        class="list-group-item list-group-item-action p-0"
-                        id="card-main-hover">
-                            <article class="media">
-                                <figure class="media-left mb-0 mr-0 my-auto">
-                                    <img src="{{$top_art->header_url}}" 
-                                        alt="{{$top_art->header_source}}" 
-                                        id="topHeaderPic">
-                                </figure>
-                                <div class="media-content">
-                                    <div class="content">
-                                        <p class="m-0 mr-2 mt-1" id="textRed">{{$top_art->league}}
-                                            <span id="floatRight">
-                                              {{date('F j', strtotime($top_art->date))}}
-                                            </span>
-                                        </p>
-                                        <h4 class="mr-2 mb-0 pb-2">
-                                            {{$top_art->title}}
-                                        </h4>
+            <div id="headlines">
+                <div class="pt-4">
+                    <ul class="list-group list-group-flush dropdown" id="lines">
+                        @foreach ($top_headline as $top_art)
+                            <a href="/articles/{{$top_art->slug}}"
+                            class="list-group-item list-group-item-action p-0"
+                            id="card-main-hover">
+                                <article class="media">
+                                    <figure class="media-left mb-0 mr-0 my-auto">
+                                        <img src="{{$top_art->header_url}}" 
+                                            alt="{{$top_art->header_source}}" 
+                                            id="topHeaderPic">
+                                    </figure>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <p class="m-0 mr-2 mt-1" id="textRed">{{$top_art->league}}
+                                                <span id="floatRight">
+                                                  {{date('F j', strtotime($top_art->date))}}
+                                                </span>
+                                            </p>
+                                            <h5 class="mr-2 mb-0 pb-2">
+                                                {{$top_art->title}}
+                                            </h5>
+                                        </div>
                                     </div>
-                                </div>
-                            </article>
-                        </a>
-                    @endforeach
-                </ul>
+                                </article>
+                            </a>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
 
 
-            @if (!$statotd->isEmpty())
-                <div>
-                    <div class="row ml-0 mr-0 mt-3" id="border-today">
-                        <div class="col-md-5 col-12 p-2">
-                            <div class="h-100" id="stat-center">
-                                <h3 id="darker-today"> THIS DAY IN HISTORY </h3>
-                                <h4 class="pt-2" id="textRed"> {{date('F j', strtotime($statotd[0]->date))}} </h4>
+            <div id="statotd">
+                @if (!$statotd->isEmpty())
+                    <div>
+                        <div class="row ml-0 mr-0 mt-3" id="border-today">
+                            <div class="col-md-5 col-12 p-2">
+                                <div class="h-100" id="stat-center">
+                                    <h3 id="darker-today"> THIS DAY IN HISTORY </h3>
+                                    <h4 class="pt-2" id="textRed"> {{date('F j', strtotime($statotd[0]->date))}} </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-7 col-12 p-2 pr-3">
+                                <p id="darker-today">
+                                    {{$statotd[0]->statistic}}
+                                </p>
+                                <p id="source-today">
+                                    <a href="{{$statotd[0]->source}}" target="_blank" id="kickred">({{$statotd[0]->source_title}})</a>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-md-7 col-12 p-2 pr-3">
-                            <p id="darker-today">
-                                {{$statotd[0]->statistic}}
-                            </p>
-                            <p id="source-today">
-                                <a href="{{$statotd[0]->source}}" target="_blank" id="kickred">({{$statotd[0]->source_title}})</a>
-                            </p>
-                        </div>
                     </div>
-                </div>
-            @endif
+                @endif
+            </div>
 
             </div>
         </div>
@@ -224,7 +230,7 @@
                         <a href="/articles/{{$article_1->slug}}"
                         class="list-group-item list-group-item-action p-0"
                         id="card-main-hover">
-                            @if ($loop->index != 2 && $loop->index != 5)
+                            @if ($loop->index != 0 && $loop->index != 3)
                                 <article class="media">
                                     <figure class="media-left mb-0 mr-0 my-auto">
                                         <img src="{{$article_1->header_url}}" 
@@ -241,7 +247,7 @@
                                             <h4 class="mr-2 mb-0 pb-0">
                                                 {{$article_1->title}}
                                             </h4>
-                                            <p class="mr-2 mb-0 pb-2 d-none d-md-block">
+                                            <p class="mr-2 mb-0 pb-2 d-none d-lg-block">
                                                 <small>{{$article_1->description}}</small>
                                             </p>
                                         </div>
@@ -268,7 +274,7 @@
                                                     <h4 class="mr-2 mb-0 pb-0 text-center text-sm-left">
                                                         {{$article_1->title}}
                                                     </h4>
-                                                    <p class="mr-2 mb-0 pb-2 d-none d-md-block">
+                                                    <p class="mr-2 mb-0 pb-2 d-none d-lg-block">
                                                         <small>{{$article_1->description}}</small>
                                                     </p>
                                                 </div>
