@@ -687,8 +687,8 @@ img.card-img-top {
 }
 
 #card-main-hover:hover {
-	transform: scale(1.01);
-	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.6);
+	box-shadow: 0px 5px 11px rgba(0, 0, 0, 0.4);
+	transform: translate(0, -1px);
 	transition: 0.3s;
 }
 
@@ -699,22 +699,25 @@ img.card-img-top {
 
 #podcast-hover {
 	height: 100%;
+    transform: scale(0.98);
 }
 
 #podcast-hover:hover {
-	transform: scale(1.09);
-	box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.6);
+	transform: scale(1);
+	transform: translate(0, -1px);
+	box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.6);
 	transition: 0.3s;
 }
 
 #card-hover {
 	border-radius: 0 0 19px 19px;
 	height: 100%;
+	transform: scale(0.98);
 }
 
 #card-hover:hover {
-	transform: scale(1.02);
-	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.6);
+	transform: scale(1);
+	box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.6);
 	transition: 0.3s;
 }
 
