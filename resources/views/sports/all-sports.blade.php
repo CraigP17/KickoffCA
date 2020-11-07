@@ -26,16 +26,6 @@
             </a>
           </div>
         @endforeach
-        @foreach ($sports as $sport)
-          <div class="col-lg-3 col-md-4 col-6 p-2">
-            <a href="/sports/{{$sport->slug}}">
-              <div class="card" id="cardi">
-                  <img src="{{$sport->dp_url}}" class="sport-logo" alt="{{$sport->dp_name}}" style="text-align:center">
-                  <h3 class="text-center py-auto">{{$sport->name}}</h3>
-              </div>
-            </a>
-          </div>
-        @endforeach
       </div>
 
 
