@@ -61,11 +61,17 @@
                             Sports
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #202020">
-                            <a class="dropdown-item text-center" id="navDropLink" href="/sports/baseball">Baseball</a>
-                            <a class="dropdown-item text-center" id="navDropLink" href="/sports/basketball">Basketball</a>
-                            <a class="dropdown-item text-center" id="navDropLink" href="/sports/football">Football</a>
-                            <a class="dropdown-item text-center" id="navDropLink" href="/sports/hockey">Hockey</a>
-                            <a class="dropdown-item text-center" id="navDropLink" href="/sports">All Sports</a>
+                            @if (isset($sports) && !empty($sports))
+                                @foreach ($sports as $sport)
+                                    <a class="dropdown-item text-center" id="navDropLink" href="/sports/{{$sport->slug}}">{{$sport->name}}</a>
+                                @endforeach
+                            @else
+                                <a class="dropdown-item text-center" id="navDropLink" href="/sports/baseball">Baseball</a>
+                                <a class="dropdown-item text-center" id="navDropLink" href="/sports/basketball">Basketball</a>
+                                <a class="dropdown-item text-center" id="navDropLink" href="/sports/football">Football</a>
+                                <a class="dropdown-item text-center" id="navDropLink" href="/sports/hockey">Hockey</a>
+                                <a class="dropdown-item text-center" id="navDropLink" href="/sports">All Sports</a>
+                            @endif
                         </div>
                     </li>
 
