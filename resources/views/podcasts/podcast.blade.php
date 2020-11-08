@@ -8,7 +8,7 @@
     <div class="container" id="backwhey">
       <div class="row" id="padtopbot">
 
-        <div class="col-md-3" style="text-align:center;">
+        <div class="col-md-3 text-center">
           <img src="{{$podcast->dp_url}}" alt="" class="podcast-img-about">
         </div>
 
@@ -16,8 +16,20 @@
         justify-content:center;padding:35px;padding-top:5px;padding-bottom:0">
           <h1>{{$podcast->name}}</h1>
           <p>{{$podcast->description}}</p>
-          <h4 id="textRed">{{$podcast->authors}}</h4>
-          <h3 id="textRed">
+          <h4 class="textRed">
+              @php
+                  for ($i=0; $i < sizeof($verified); $i++) {
+                      echo "<a href='/authors/" . $verified[$i]->slug . "' class='textRed'>" . $verified[$i]->name . "</a>";
+                      if ($i < sizeof($verified) - 1) {echo ", ";}
+                  }
+                  if (sizeof($verified) != 0 && sizeof($unverified) != 0) echo ", ";
+                  for ($j=0; $j < sizeof($unverified); $j++) {
+                      echo "<span class='textRed'>" . $unverified[$j] . "</span>";
+                      if ($j < sizeof($unverified) - 1) {echo ", ";}
+                  }
+              @endphp
+          </h4>
+          <h3>
             @isset($podcast->spotify)
               <a href="{{$podcast->spotify}}" target="_blank">Spotify</a>
             @endisset

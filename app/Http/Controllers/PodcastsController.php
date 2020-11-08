@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Pod;
 use App\Podcast;
+use App\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -77,8 +78,28 @@ class PodcastsController extends Controller
      */
     public function show(Podcast $podcast)
     {
-      //if (!$slug) return abort(404);
-      return view('podcasts.podcast', compact('podcast'));
+      $authors = explode(',', $podcast->authors);
+      $trimmed_authors = array();
+      foreach ($authors as $author) {
+          $trimmed_authors[] = trim($author);
+      }
+      $verified = Author::whereIn('name', $trimmed_authors)->select('name', 'slug')->get(); 
+      
+      $unverified = array();
+      foreach ($trimmed_authors as $t) {
+          $found = 0;
+          foreach ($verified as $v) {
+              if (strrpos($v->name, $t) > -1) {
+                  $found = 1;
+                  break;
+              }
+          }
+          if ($found != 1) {
+              $unverified[] = $t;
+          }
+      }
+      
+      return view('podcasts.podcast', compact('podcast', 'verified', 'unverified'));
     }
 
 

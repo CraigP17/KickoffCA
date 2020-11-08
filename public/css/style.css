@@ -923,6 +923,26 @@ a.empty:hover {
 	color: white;
 }
 
+.textRed {
+	color: #A80C00;
+}
+
+.textRed:hover {
+	color: #A80C00;
+}
+
+.textBlack {
+	color: black;
+}
+
+.textWhite {
+	color: white;
+}
+
+.textGrey {
+	color: #353A3F;
+}
+
 #backred {
 	background-color: #BF5454;
 }
