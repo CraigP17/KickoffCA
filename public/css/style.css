@@ -386,6 +386,17 @@ img.podcast-img-about {
 	width: 110px;
 }
 
+#podcast-profile {
+	font-size:125%;
+	text-align:center;
+	justify-content:center;
+	padding: 5px 35px 0 35px;
+}
+
+.text-70 {
+	font-size:70%;
+}
+
 /* ~~~~~~~~~~~~~ SPORTS PAGES ~~~~~~~~~~~~ */
 
 img.sport-logo {
@@ -409,6 +420,16 @@ img.sport-logo {
 }
 
 #floatRight {
+	float: right;
+	color: #A80C00;
+}
+
+.floatLeft {
+	float: left;
+	color: #A80C00;
+}
+
+.floatRight {
 	float: right;
 	color: #A80C00;
 }
